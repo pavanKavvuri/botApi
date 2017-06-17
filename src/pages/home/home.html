@@ -1,14 +1,69 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color='dark'>
     <ion-title>
-      Ionic Blank
+      CIO Dashboard
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><ion-icon name="ios-notifications-outline"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="ios-more-outline"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-grid class='graph-grid'>
+    <ion-row class='primary-graph' align-items-center>
+      <ion-col class='graph-container'>
+        <ion-card class='graph-card-container'>
+          <ion-card-header>
+            Graph 1
+          </ion-card-header>
+
+          <canvas id='myChart' height="300" width="550"></canvas>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class='secondary-graph' align-items-center>
+
+      <ion-col class='graph-container'>
+        <ion-card class='graph-card-container'>
+          <ion-card-header>
+            Graph 1
+          </ion-card-header>
+
+          <canvas id='myChart2' height="300" width="550"></canvas>
+
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col class='graph-container'>
+        <ion-card class='graph-card-container'>
+          <ion-card-header>
+            Graph 2
+          </ion-card-header>
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col class='graph-container'>
+        <ion-card class='graph-card-container'>
+          <ion-card-header>
+            Graph 3
+          </ion-card-header>
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

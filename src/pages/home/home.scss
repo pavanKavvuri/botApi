@@ -1,3 +1,35 @@
 page-home {
+    text-align: center;
+    
+    .graph-grid{
+        height: 100%;
+    }
 
+    .primary-graph{
+        height: 50%;
+        //height: 70%  //when in portrait
+    }
+
+    .secondary-graph{
+        height: 50%;
+        //height: 30%  //when in portrait
+    }
+
+    .graph-container{
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .graph-card-container{
+        height: 100%;
+    }
+
+    #myChart{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+    }
 }
