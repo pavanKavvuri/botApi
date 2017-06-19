@@ -14,56 +14,64 @@
 
 <ion-content padding>
 
-  <ion-grid class='graph-grid'>
-    <ion-row class='primary-graph' align-items-center>
-      <ion-col class='graph-container'>
-        <ion-card class='graph-card-container'>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            Active Incidents
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #incidentsCanvas></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+      <ion-col>
+        <ion-card>
           <ion-card-header>
             Graph 1
           </ion-card-header>
-
-          <canvas id='myChart' height="300" width="550"></canvas>
-
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class='secondary-graph' align-items-center>
-
-      <ion-col class='graph-container'>
-        <ion-card class='graph-card-container'>
-          <ion-card-header>
-            Graph 1
-          </ion-card-header>
-
-          <canvas id='myChart2' height="300" width="550"></canvas>
-
           <ion-card-content>
+            <canvas #barCanvas></canvas>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col class='graph-container'>
-        <ion-card class='graph-card-container'>
+      <ion-col>
+        <ion-card>
           <ion-card-header>
-            Graph 2
+            Line Chart
           </ion-card-header>
           <ion-card-content>
+            <canvas #lineCanvas></canvas>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col class='graph-container'>
-        <ion-card class='graph-card-container'>
+      <ion-col>
+        <ion-card>
           <ion-card-header>
-            Graph 3
+            Doughnut Chart
           </ion-card-header>
           <ion-card-content>
+            <canvas #doughnutCanvas></canvas>
           </ion-card-content>
         </ion-card>
       </ion-col>
+
+
 
     </ion-row>
 
   </ion-grid>
+
+
+
+
+
+
+
 </ion-content>
