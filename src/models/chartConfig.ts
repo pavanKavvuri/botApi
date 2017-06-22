@@ -2,15 +2,15 @@ interface CharConfig {
     type: string;
     data: ChartData;
     subCharts: Array<SubChart>;
+    axisLabels: Array<string>;
 };
 
-interface SubChart{
+interface SubChart {
     type: string;
     data: ChartData;
 };
 
 interface ChartData {
     name: string;
-    label: string;
     dataItems: Array<number>;
 };
