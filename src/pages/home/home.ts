@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import * as c3 from 'c3';
+
 
 @Component({
   selector: 'page-home',
@@ -12,6 +14,8 @@ export class HomePage {
   @ViewChild('lineCanvas') lineCanvas;
   @ViewChild('incidentsCanvas') incidentsCanvas;
   @ViewChild('mixedChartCanvas') mixedChartCanvas;
+
+  @ViewChild('dashboardChart') dashboardChart: ElementRef;
 
   barChart: any;
   doughnutChart: any;
@@ -25,48 +29,130 @@ export class HomePage {
 
   ionViewDidLoad() {
 
+    let dashboardChartArea = this.dashboardChart.nativeElement;
+
+    c3.generate({
+      bindto: dashboardChartArea,
+      data: {
+        labels: true,
+        columns: [
+          ['New', 30, 20, 50, 40, 60, 50],
+          ['Closed', 200, 130, 90, 240, 130, 220],
+          ['Active', 300, 200, 160, 400, 250, 250],
+        ],
+        type: 'bar',
+        types: {
+          Active: 'line',
+
+        },
+
+      },
+      grid: {
+        x: {
+          show: true
+        },
+      },
+      axis: {
+        y: {
+          label: {
+            text: '# No. of Incidents',
+            position: 'outer-middle'
+          }
+        },
+      }
+    });
+
+    var chart = c3.generate({
+      data: {
+        columns: [
+          ['data1', 30, 20, 50, 40, 60, 50],
+          ['data2', 200, 130, 90, 240, 130, 220],
+          ['data3', 300, 200, 160, 400, 250, 250],
+          ['data4', 200, 130, 90, 240, 130, 220],
+          ['data5', 130, 120, 150, 140, 160, 150],
+          ['data6', 90, 70, 20, 50, 60, 120],
+        ],
+        type: 'bar',
+        types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+        },
+        groups: [
+          ['data1', 'data2']
+        ]
+      }
+    });
+
+
     this.mixedChart = new Chart(this.mixedChartCanvas.nativeElement, {
       type: 'bar',
       data: {
         datasets: [{
           label: 'Bar Dataset',
           data: [10, 20, 30, 40],
-           backgroundColor: [
+          backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
-             'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 99, 132, 0.2)'
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)'
 
           ],
-        },{
+        }, {
           label: 'Bar Dataset',
           data: [10, 20, 30, 40],
-           backgroundColor: [
-            
+          backgroundColor: [
+
             'rgba(54, 162, 235, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(54, 162, 235, 0.2)',
-            
+
           ],
         }, {
           label: 'Line Dataset',
           data: [30, 20, 40, 50],
-            backgroundColor: "rgba(0,0,0, 0)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
+          backgroundColor: "rgba(0,0,0, 0)",
+          borderColor: "rgba(75,192,192,1)",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "rgba(75,192,192,1)",
+          pointBackgroundColor: "#fff",
           // Changes this dataset to become a line
           type: 'line'
         }],
         labels: ['January', 'February', 'March', 'April']
       },
-       options: {
-        scales: {
+      options: {
+        animation: {
+          onComplete: function () {
+            var ctx = this.chart.ctx;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            var chart = this;
+            var datasets = this.config.data.datasets;
+
+            datasets.forEach(function (dataset, i) {
+              ctx.font = "20px Arial";
+              switch (dataset.type) {
+                case "line":
+                  ctx.fillStyle = "Black";
+                  chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                    ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 20);
+                  });
+                  break;
+                case "bar":
+                  ctx.fillStyle = "White";
+                  chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                    ctx.fillText(datasets[i].data[j], p._model.x, p._model.y + 20);
+                  });
+                  break;
+              }
+            })
+          }
+        }, scales: {
           yAxes: [{
             ticks: {
               beginAtZero: true
