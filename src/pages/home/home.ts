@@ -11,18 +11,71 @@ export class HomePage {
   @ViewChild('doughnutCanvas') doughnutCanvas;
   @ViewChild('lineCanvas') lineCanvas;
   @ViewChild('incidentsCanvas') incidentsCanvas;
-
+  @ViewChild('mixedChartCanvas') mixedChartCanvas;
 
   barChart: any;
   doughnutChart: any;
   lineChart: any;
   incidentsChart: any;
+  mixedChart: any
 
   constructor(public navCtrl: NavController) {
 
   }
 
   ionViewDidLoad() {
+
+    this.mixedChart = new Chart(this.mixedChartCanvas.nativeElement, {
+      type: 'bar',
+      data: {
+        datasets: [{
+          label: 'Bar Dataset',
+          data: [10, 20, 30, 40],
+           backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+             'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)'
+
+          ],
+        },{
+          label: 'Bar Dataset',
+          data: [10, 20, 30, 40],
+           backgroundColor: [
+            
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            
+          ],
+        }, {
+          label: 'Line Dataset',
+          data: [30, 20, 40, 50],
+            backgroundColor: "rgba(0,0,0, 0)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+          // Changes this dataset to become a line
+          type: 'line'
+        }],
+        labels: ['January', 'February', 'March', 'April']
+      },
+       options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
     this.barChart = new Chart(this.barCanvas.nativeElement, {
 
       type: 'bar',
@@ -151,5 +204,7 @@ export class HomePage {
 
     });
   }
+
+
 
 }
