@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { ScoreCardDataProvider } from '../../providers/score-card-data/score-card-data';
+import { GroupScoreCard } from '../../models/scoreCard';
 
 @IonicPage()
 @Component({
@@ -8,9 +11,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ScoreCardPage {
 
-  incidents = ['7', '10', '1', '-'];
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  //scoreCardData: Observable<GroupScoreCard>;
+  scoreCard: GroupScoreCard = {
+    scoreCard: []
+  };
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private dataSource: ScoreCardDataProvider) {
+
+    // this.scoreCardData.subscribe(scoreCard => {
+    //   //console.log('in subscribe');
+    //   scoreCard.scoreCard.map(x => { console.log(x.groupName); });
+    // });
+
+  }
+
+  ngOnInit() {
+    this.dataSource.scoreCardData.subscribe(val => {
+      this.scoreCard = val;
+    });
   }
 
   ionViewDidLoad() {
