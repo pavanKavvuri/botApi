@@ -8,12 +8,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ScoreCardPage } from '../pages/score-card/score-card';
+
 import { ChartProvider } from '../providers/chart/chart';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ScoreCardPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { ChartProvider } from '../providers/chart/chart';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ScoreCardPage
   ],
   providers: [
     StatusBar,

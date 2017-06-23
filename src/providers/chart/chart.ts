@@ -1,8 +1,17 @@
 import { Injectable, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import c3 from 'c3';
 
+/**
+ * API response 
+ * {
+ *    weeks: {[ start: '', end: '']},
+ *    new: [-,-,-,-,-],
+ *    closed: [-,-,-,-,],
+ *    active: [-,-,-,-,]
+ * }
+ * 
+ */
 @Injectable()
 export class ChartProvider {
 
@@ -10,10 +19,8 @@ export class ChartProvider {
 
   }
 
-  getChartFromConfig(elementRef: ElementRef) {
-    console.log('generate chart -- ', elementRef);
-
-    return c3.generate({
+  getIncidentsChart(elementRef: ElementRef) {
+    return {
       bindto: elementRef.nativeElement,
       data: {
         names: {
@@ -31,21 +38,25 @@ export class ChartProvider {
           '3': 'line'
         }
       },
+      legend: {
+        position: 'right'
+      },
       axis: {
         x: {
+          type: 'category',
+          categories: ['1-7', '8-14', 'x-y', 'a-b', 'c-d', 'e-f'],
           label: {
-            text: 'Your X Axis',
+            text: 'Weeks',
             position: 'outer-center'
           }
         },
         y: {
           label: {
-            text: 'Your Y Axis',
+            text: 'No. of Incidents',
             position: 'outer-middle'
           }
         }
       }
-    });
+    }
   }
-
 }

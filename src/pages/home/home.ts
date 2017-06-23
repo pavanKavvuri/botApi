@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import c3 from 'c3';
 
+import { ScoreCardPage } from '../score-card/score-card';
+
 import { ChartProvider } from '../../providers/chart/chart';
 
 
@@ -22,96 +24,105 @@ export class HomePage {
 
   ionViewDidLoad() {
 
-    
+    c3.generate(this.chartService.getIncidentsChart(this.activeIncidentsChart));
 
-  c3.generate({
-    bindto: this.activeIncidentsChart.nativeElement,
-    data: {
-      names: {
-        '1': 'New',
-        '2': 'Closed',
-        '3': 'Active'
-      },
-      columns: [
-        ['1', 30, 20, 50, 40, 60, 50],
-        ['2', 200, 130, 90, 240, 130, 220],
-        ['3', 300, 200, 160, 400, 250, 250],
-      ],
-      type: 'bar',
-      types: {
-        '3': 'line'
-      }
-    },
-    axis: {
-      x: {
-        label: {
-          text: 'Your X Axis',
-          position: 'outer-center'
-        }
-      },
-      y: {
-        label: {
-          text: 'Your Y Axis',
-          position: 'outer-middle'
-        }
-      }
-    }
-  });
+    // c3.generate({
+    //   bindto: this.activeIncidentsChart.nativeElement,
+    //   data: {
+    //     names: {
+    //       '1': 'New',
+    //       '2': 'Closed',
+    //       '3': 'Active'
+    //     },
+    //     columns: [
+    //       ['1', 30, 20, 50, 40, 60, 50],
+    //       ['2', 200, 130, 90, 240, 130, 220],
+    //       ['3', 300, 200, 160, 400, 250, 250],
+    //     ],
+    //     type: 'bar',
+    //     types: {
+    //       '3': 'line'
+    //     }
+    //   },
+    //   legend: {
+    //     position: 'right'
+    //   },
+    //   axis: {
+    //     x: {
+    //       type: 'category',
+    //       categories: ['1-7', '8-14', 'x-y', 'a-b', 'c-d', 'e-f'],
+    //       label: {
+    //         text: 'Weeks',
+    //         position: 'outer-center'
+    //       }
+    //     },
+    //     y: {
+    //       label: {
+    //         text: 'No. of Incidents',
+    //         position: 'outer-middle'
+    //       }
+    //     }
+    //   }
+    // });
 
-  c3.generate({
+    c3.generate({
       bindto: this.activeEnhancementsChart.nativeElement,
-    data: {
+      data: {
         columns: [
-      ['data1', 30, 20, 50, 40, 60, 50],
-  ['data2', 200, 130, 90, 240, 130, 220],
-  ['data3', 300, 200, 160, 400, 250, 250],
-  ['data4', 200, 130, 90, 240, 130, 220],
-  ['data5', 130, 120, 150, 140, 160, 150],
+          ['data1', 30, 20, 50, 40, 60, 50],
+          ['data2', 200, 130, 90, 240, 130, 220],
+          ['data3', 300, 200, 160, 400, 250, 250],
+          ['data4', 200, 130, 90, 240, 130, 220],
+          ['data5', 130, 120, 150, 140, 160, 150],
         ],
-  type: 'bar',
-  types: {
-    data3: 'line',
-    data4: 'line',
-    data5: 'line',
-  }
-}
+        type: 'bar',
+        types: {
+          data3: 'line',
+          data4: 'line',
+          data5: 'line',
+        }
+      }
     });
 
 
-c3.generate({
-  bindto: this.serviceRequestsChart.nativeElement,
-  data: {
-    columns: [
-      ['data1', 30, 20, 50, 40, 60, 50],
-      ['data2', 200, 130, 90, 240, 130, 220],
-      ['data3', 300, 200, 160, 400, 250, 250],
-    ],
-    type: 'bar',
-    types: {
-      data3: 'line'
-    }
+    c3.generate({
+      bindto: this.serviceRequestsChart.nativeElement,
+      data: {
+        columns: [
+          ['data1', 30, 20, 50, 40, 60, 50],
+          ['data2', 200, 130, 90, 240, 130, 220],
+          ['data3', 300, 200, 160, 400, 250, 250],
+        ],
+        type: 'bar',
+        types: {
+          data3: 'line'
+        }
+      }
+    });
+
+    c3.generate({
+      bindto: this.agingTrendChart.nativeElement,
+      data: {
+        columns: [
+          ['data1', 30, 20, 50, 40, 60, 50],
+          ['data2', 200, 130, 90, 240, 130, 220],
+          ['data3', 300, 200, 160, 400, 250, 250],
+          ['data4', 200, 130, 90, 240, 130, 220],
+        ],
+        type: 'line',
+        types: {
+          data2: 'line',
+          data3: 'line',
+          data4: 'line'
+        }
+      }
+    });
+
+
   }
-});
 
-c3.generate({
-  bindto: this.agingTrendChart.nativeElement,
-  data: {
-    columns: [
-      ['data1', 30, 20, 50, 40, 60, 50],
-      ['data2', 200, 130, 90, 240, 130, 220],
-      ['data3', 300, 200, 160, 400, 250, 250],
-      ['data4', 200, 130, 90, 240, 130, 220],
-    ],
-    type: 'line',
-    types: {
-      data2: 'line',
-      data3: 'line',
-      data4: 'line'
-    }
-  }
-});
-
-
+  showScoreCard() {
+    this.navCtrl.push(ScoreCardPage);
   }
 
 }
