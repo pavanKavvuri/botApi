@@ -18,8 +18,19 @@ export class HomePage {
   @ViewChild('serviceRequestsChart') serviceRequestsChart: ElementRef;
   @ViewChild('agingTrendChart') agingTrendChart: ElementRef;
 
+  updates: Array<string> = [];
+  segment: string = 'week';
+  
   constructor(public navCtrl: NavController, public chartService: ChartProvider) {
-
+    this.updates  = [
+      'Lorem ipsum ...',
+      'Lorem ipsum ...',
+      'Lorem ipsum ...',
+      'Lorem ipsum ...',
+      'Lorem ipsum ...',
+      'Lorem ipsum ...',
+      'Lorem ipsum ...'
+    ]
   }
 
   ionViewDidLoad() {

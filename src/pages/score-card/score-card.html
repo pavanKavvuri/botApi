@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color='dark'>
+  <ion-navbar color='header-color'>
     <ion-title>Score Card</ion-title>
   </ion-navbar>
 
@@ -8,6 +8,11 @@
 
 
 <ion-content padding>
+
+  <ion-card>
+    <div #scoreCardChart></div>
+  </ion-card>
+
   <ion-list>
 
     <ion-card *ngFor='let group of scoreCard.scoreCard'>

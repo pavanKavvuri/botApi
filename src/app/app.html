@@ -1,1 +1,50 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Allianz</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item no-lines class='center-align'>
+                        <img class='circular-image' src='http://placehold.it/100x100' />
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class='center-align'>
+                <ion-col>
+                    <ion-item no-lines class='center-align'>
+                        User Profile
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-list radio-group style='margin-top:20px;' [(ngModel)]="groupSelection">
+            <ion-list-header>
+                Report For
+            </ion-list-header>
+
+            <ion-item>
+                <ion-label>ADM AM</ion-label>
+                <ion-radio value="adm"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>SMO</ion-label>
+                <ion-radio value="smo"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>GSD and L1</ion-label>
+                <ion-radio value="gsd"></ion-radio>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
