@@ -2,6 +2,10 @@ import { Injectable, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { DataProvider } from '../../providers/data/data';
+import { Interval, ActiveIncidents, ActiveEnhancemnets, ActiveServiceRequests, Aging } from '../../models/weeklyMatrics';
+
+
 /**
  * API response 
  * {
@@ -15,8 +19,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ChartProvider {
 
-  constructor(public http: Http) {
+  activeIncidents: ActiveIncidents
 
+  constructor(public http: Http, public dataProvider: DataProvider) {
+    this.dataProvider.activeIncidentsData.subscribe((activeIncidents: ActiveIncidents) =>{
+      this.activeIncidents = activeIncidents;
+      console.log(this.activeIncidents);
+    });
   }
 
   getIncidentsChart(elementRef: ElementRef) {
@@ -30,8 +39,12 @@ export class ChartProvider {
         },
         columns: [
           ['1', 30, 20, 50, 40, 60, 50],
-          ['2', 200, 130, 90, 240, 130, 220],
-          ['3', 300, 200, 160, 400, 250, 250],
+          // ['1', ...this.activeIncidents.new],
+          // ['2', 200, 130, 90, 240, 130, 220],
+          ['2', ...this.activeIncidents.closed],
+          // ['3', 300, 200, 160, 400, 250, 250],
+          ['3', ...this.activeIncidents.active],
+
         ],
         type: 'bar',
         types: {

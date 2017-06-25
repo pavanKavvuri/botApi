@@ -1,0 +1,66 @@
+Trend of Active Incidents - 
+{
+  "weeks":[{
+    "start":"",
+    "end": ""
+  },{
+    "start":"",
+    "end": ""
+  }],
+  
+  "new":[],
+  "closed":[],
+  "active":[]
+
+}
+
+Trend of Active Enhancements - 
+
+{
+  "weeks":[{
+    "start":"",
+    "end": ""
+  },{
+    "start":"",
+    "end": ""
+  }],
+  
+  "new":[],
+  "closed":[],
+  "itdriven":[],
+  "businessdrive":[],
+  "bugs":[]
+}
+
+
+Trend of Service Requests-
+{
+  "weeks":[{
+    "start":"",
+    "end": ""
+  },{
+    "start":"",
+    "end": ""
+  }],
+  
+  "new":[],
+  "closed":[],
+  "active":[]
+
+}
+
+Trend of Aging-
+
+{
+  "weeks":[{
+    "start":"",
+    "end": ""
+  },{
+    "start":"",
+    "end": ""
+  }],
+  
+  "awaiting_user_info":[],
+  "4weeks":[],
+  "12weeks":[]
+}

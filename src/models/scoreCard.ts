@@ -30,6 +30,7 @@ interface ServiceReqScoreCard {
     gt30Days: string | number;
 };
 
+
 export {
     GroupScoreCard,
     GroupScoreCardDetails,
