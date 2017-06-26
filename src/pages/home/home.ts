@@ -80,7 +80,6 @@ export class HomePage {
   }
 
   loadNewData(chart: any, activeIncidents: ActiveIncidents) {
-
     this.chart.unload({
       done: () => {
         chart.load({

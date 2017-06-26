@@ -15,123 +15,51 @@
 
   <ion-list>
 
-    <ion-card *ngFor='let group of scoreCard.scoreCard'>
+    <ion-card>
       <ion-card-header>
-        {{group.groupName}}
+        Incidents
       </ion-card-header>
 
       <ion-card-content>
-        <div style='display: inline'>
-          <ion-grid style='text-align: center'>
-            <ion-row>
-              <ion-col>Incidents</ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                Inflow
-              </ion-col>
-              <ion-col>
-                Closed
-              </ion-col>
-              <ion-col>
-                Active
-              </ion-col>
-              <ion-col>
-                >30 Days
-              </ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                {{group.incidentScoreCard.inflow}}
-              </ion-col>
-              <ion-col>
-                {{group.incidentScoreCard.closed}}
-              </ion-col>
-              <ion-col>
-                {{group.incidentScoreCard.active}}
-              </ion-col>
-              <ion-col>
-                {{group.incidentScoreCard.gt30Days}}
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
+        <ion-grid>
+          <ion-row class='tableRow'>
+            <ion-col col-4>
+              Assignment Group / KPI
+            </ion-col>
+            <ion-col col-2>
+              Inflow
+            </ion-col>
+            <ion-col col-2>
+              Closed
+            </ion-col>
+            <ion-col col-2>
+              Active
+            </ion-col>
+            <ion-col col-2>
+              >30 Days
+            </ion-col>
+          </ion-row>
 
-        <div style='display: inline'>
-          <ion-grid style='text-align: center'>
-            <ion-row>
-              <ion-col>Enhancements</ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                Active Bugs
-              </ion-col>
-              <ion-col>
-                Active IT Changes
-              </ion-col>
-              <ion-col>
-                Active Business Changes
-              </ion-col>
-              <ion-col>
-                Closed
-              </ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                {{group.enhancementScoreCard.activeBugs}}
-              </ion-col>
-              <ion-col>
-                {{group.enhancementScoreCard.activeITChanges}}
-              </ion-col>
-              <ion-col>
-                {{group.enhancementScoreCard.activeBusinessChanges}}
-              </ion-col>
-              <ion-col>
-                {{group.enhancementScoreCard.closed}}
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-
-        <div style='display: inline'>
-          <ion-grid style='text-align: center'>
-            <ion-row>
-              <ion-col>Service Requests</ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                Inflow
-              </ion-col>
-              <ion-col>
-                Closed
-              </ion-col>
-              <ion-col>
-                Active
-              </ion-col>
-              <ion-col>
-                >30 Days
-              </ion-col>
-            </ion-row>
-            <ion-row class='tableRow'>
-              <ion-col>
-                {{group.serviceReqScoreCard.inflow}}
-              </ion-col>
-              <ion-col>
-                {{group.serviceReqScoreCard.closed}}
-              </ion-col>
-              <ion-col>
-                {{group.serviceReqScoreCard.active}}
-              </ion-col>
-              <ion-col>
-                {{group.serviceReqScoreCard.gt30Days}}
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-
+          <ion-row *ngFor='let group of scoreCard.scoreCard' class='tableRow'>
+            <ion-col col-4>
+              {{group.groupName}}
+            </ion-col>
+            <ion-col col-2>
+              {{group.incidentScoreCard.inflow}}
+            </ion-col>
+            <ion-col col-2>
+              {{group.incidentScoreCard.closed}}
+            </ion-col>
+            <ion-col col-2>
+              {{group.incidentScoreCard.active}}
+            </ion-col>
+            <ion-col col-2>
+              {{group.incidentScoreCard.gt30Days}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card-content>
     </ion-card>
-
   </ion-list>
 
 </ion-content>
