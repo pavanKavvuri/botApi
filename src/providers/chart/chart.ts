@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { DataProvider } from '../../providers/data/data';
-import { Interval, ActiveIncidents, ActiveEnhancemnets, ActiveServiceRequests, Aging } from '../../models/weeklyMatrics';
+import {  Interval, ActiveIncidents, ActiveEnhancemnets, ActiveServiceRequests, Aging  } from '../../models/weeklyMatrics';
 
 
 /**
@@ -22,10 +22,18 @@ export class ChartProvider {
   activeIncidents: ActiveIncidents
 
   constructor(public http: Http, public dataProvider: DataProvider) {
-    this.dataProvider.activeIncidentsData.subscribe((activeIncidents: ActiveIncidents) =>{
+    this.dataProvider.activeIncidentsData.subscribe((activeIncidents: ActiveIncidents) => {
       this.activeIncidents = activeIncidents;
       console.log(this.activeIncidents);
     });
+  }
+
+  getIntervalsForChart(weekArray: Array< Interval>): Array<string> {
+    let intervalArray: Array<string> = [];
+    for (let i = 0; i < weekArray.length; i++) {
+      intervalArray.push("" + weekArray[i].start + "-" + weekArray[i].end);
+    }
+    return intervalArray;
   }
 
   getIncidentsChart(elementRef: ElementRef) {
@@ -39,11 +47,11 @@ export class ChartProvider {
         },
         columns: [
           ['1', 30, 20, 50, 40, 60, 50],
+          ['2', 200, 130, 90, 240, 130, 220],
+          ['3', 300, 200, 160, 400, 250, 250],
           // ['1', ...this.activeIncidents.new],
-          // ['2', 200, 130, 90, 240, 130, 220],
-          ['2', ...this.activeIncidents.closed],
-          // ['3', 300, 200, 160, 400, 250, 250],
-          ['3', ...this.activeIncidents.active],
+          // ['2', ...this.activeIncidents.closed],
+          // ['3', ...this.activeIncidents.active],
 
         ],
         type: 'bar',
@@ -58,6 +66,7 @@ export class ChartProvider {
         x: {
           type: 'category',
           categories: ['1-7', '8-14', 'x-y', 'a-b', 'c-d', 'e-f'],
+          //categories: this.getIntervalsForChart(this.activeIncidents.weeks),
           label: {
             text: 'Weeks',
             position: 'outer-center'
