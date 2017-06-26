@@ -5,21 +5,21 @@ interface Interval {
 
 interface ActiveIncidents{
     weeks : Array<Interval>;
-    new : Array<number>;
+    newIncidents : Array<number>;
     active : Array<number>;
-    closed : Array<number>;
+    closedIncidents : Array<number>;
 };
 
 interface ActiveEnhancemnets{
     weeks : Array<Interval>;
-    new : Array<number>;
+    'new' : Array<number>;
     active : Array<number>;
     closed : Array<number>;
 };
 
 interface ActiveServiceRequests{
     weeks : Array<Interval>;
-    new : Array<number>;
+    'new' : Array<number>;
     active : Array<number>;
     closed : Array<number>;
 };

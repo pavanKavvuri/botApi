@@ -5,7 +5,7 @@ import c3 from 'c3';
 import { ScoreCardPage } from '../score-card/score-card';
 
 import { ChartProvider } from '../../providers/chart/chart';
-
+import { ActiveIncidents } from '../../models/weeklyMetrices';
 
 @Component({
   selector: 'page-home',
@@ -20,9 +20,13 @@ export class HomePage {
 
   updates: Array<string> = [];
   segment: string = 'week';
-  
-  constructor(public navCtrl: NavController, public chartService: ChartProvider) {
-    this.updates  = [
+  chart: any = null;
+
+  constructor(public navCtrl: NavController,
+    public chartService: ChartProvider) {
+
+
+    this.updates = [
       'Lorem ipsum ...',
       'Lorem ipsum ...',
       'Lorem ipsum ...',
@@ -33,9 +37,78 @@ export class HomePage {
     ]
   }
 
+  loadChart(elementRef: ElementRef, activeIncidents: ActiveIncidents) {
+    return {
+      bindto: elementRef.nativeElement,
+      data: {
+        names: {
+          '1': 'New',
+          '2': 'Closed',
+          '3': 'Active'
+        },
+        columns: [
+          ['1', ...activeIncidents.newIncidents],
+          ['2', ...activeIncidents.closedIncidents],
+          ['3', ...activeIncidents.active]
+        ],
+        type: 'bar',
+        types: {
+          '3': 'line'
+        }
+      },
+      legend: {
+        position: 'right'
+      },
+      axis: {
+        x: {
+          type: 'category',
+          categories: ['1-7', '8-14', 'x-y', 'a-b', 'c-d', 'e-f'],
+          //categories: this.getIntervalsForChart(this.activeIncidents.weeks),
+          label: {
+            text: 'Weeks',
+            position: 'outer-center'
+          }
+        },
+        y: {
+          label: {
+            text: 'No. of Incidents',
+            position: 'outer-middle'
+          }
+        }
+      }
+    }
+  }
+
+  loadNewData(chart: any, activeIncidents: ActiveIncidents) {
+
+    this.chart.unload({
+      done: () => {
+        chart.load({
+          columns: [
+            ['1', ...activeIncidents.newIncidents],
+            ['2', ...activeIncidents.closedIncidents],
+            ['3', ...activeIncidents.active]
+          ],
+          type: 'bar',
+          types: {
+            '3': 'line'
+          }
+        });
+      }
+    });
+  }
+
   ionViewDidLoad() {
 
-    c3.generate(this.chartService.getIncidentsChart(this.activeIncidentsChart));
+    this.chartService.newDataObservable.subscribe((chartData) => {
+      if (this.chart === null) {
+        //first time generate chart
+        this.chart = c3.generate(this.loadChart(this.activeIncidentsChart, chartData));
+      } else {
+        setTimeout(() => { this.loadNewData(this.chart, chartData); }, 500);
+      }
+    });
+
 
     // c3.generate({
     //   bindto: this.activeIncidentsChart.nativeElement,
