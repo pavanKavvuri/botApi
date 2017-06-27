@@ -10,14 +10,14 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <ion-item no-lines class='center-align'>
+                    <ion-item no-lines class='center-align sidebar-item'>
                         <img class='circular-image' src='http://placehold.it/100x100' />
                     </ion-item>
                 </ion-col>
             </ion-row>
             <ion-row class='center-align'>
                 <ion-col>
-                    <ion-item no-lines class='center-align'>
+                    <ion-item no-lines class='center-align sidebar-item'>
                         User Profile
                     </ion-item>
                 </ion-col>
@@ -26,7 +26,7 @@
 
         <ion-list no-lines radio-group style='margin-top:20px;' [(ngModel)]="groupSelection">
 
-            <ion-item *ngFor='let group of groups; let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item'>
+            <ion-item *ngFor='let group of groups; let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item sidebar-item'>
                 <ion-label>{{group.name}}</ion-label>
                 <ion-radio mode='md' item-left value="{{group.value}}"></ion-radio>
             </ion-item>

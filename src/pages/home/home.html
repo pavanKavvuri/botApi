@@ -113,8 +113,9 @@
           </ion-card-header>
           <ion-card-content>
             <ion-list>
-              <ion-item no-lines *ngFor='let update of updates'>
-                {{update}}
+              <ion-item no-lines *ngFor='let update of keyUpdates'>
+                <ion-label> {{update}}</ion-label>
+                <img class='bullet' src='./assets/img/key_updates_bullet.png' item-left/>
               </ion-item>
             </ion-list>
           </ion-card-content>

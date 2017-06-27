@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 
-import { Interval, ActiveIncidents, ActiveEnhancemnets, ActiveServiceRequests, Aging } from '../../models/weeklyMetrices';
+import { Interval, ActiveIncidents } from '../../models/weeklyMetrices';
 
 
 @Injectable()

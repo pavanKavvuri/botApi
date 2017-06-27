@@ -12,7 +12,6 @@ import { ScoreCardPage } from '../pages/score-card/score-card';
 
 import { ChartProvider } from '../providers/chart/chart';
 import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-data';
-import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { DataProvider } from '../providers/data/data';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ChartProvider,
-    ScoreCardDataProvider,
-    DataProvider
+    ScoreCardDataProvider
   ]
 })
 export class AppModule { }

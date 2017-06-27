@@ -18,24 +18,22 @@ export class HomePage {
   @ViewChild('serviceRequestsChart') serviceRequestsChart: ElementRef;
   @ViewChild('agingTrendChart') agingTrendChart: ElementRef;
 
-  updates: Array<string> = [];
+  keyUpdates: Array<string> = [
+    'Lorem ipsum ...',
+    'Lorem ipsum ...',
+    'Lorem ipsum ...',
+    'Lorem ipsum ...',
+    'Lorem ipsum ...',
+    'Lorem ipsum ...',
+    'Lorem ipsum ...'
+  ];
+
   segment: string = 'week';
   chart: any = null;
 
   constructor(public navCtrl: NavController,
     public chartService: ChartProvider) {
 
-
-    this.updates = [
-      'Lorem ipsum ...',
-      'Lorem ipsum ...',
-      'Lorem ipsum ...',
-      'Lorem ipsum ...',
-      'Lorem ipsum ...',
-      'Lorem ipsum ...',
-      'Lorem ipsum ...'
-    ];
-    
   }
 
   loadChart(elementRef: ElementRef, activeIncidents: ActiveIncidents) {
