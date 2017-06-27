@@ -34,7 +34,8 @@ export class HomePage {
       'Lorem ipsum ...',
       'Lorem ipsum ...',
       'Lorem ipsum ...'
-    ]
+    ];
+    
   }
 
   loadChart(elementRef: ElementRef, activeIncidents: ActiveIncidents) {

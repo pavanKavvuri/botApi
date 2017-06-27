@@ -15,11 +15,47 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+$background-color: #414243;
+$border-color: #7b7c7c;
 
- .center-align{
+.center-align{
     text-align: center;
 }
 
 .circular-image{
     border-radius: 50%;
+}
+
+.toolbar{
+    text-align: center !important;
+    .img{
+        transform: scale(0.8);
+    }
+}
+
+.content{
+    background: $background-color;
+}
+
+.item{
+    background: transparent;
+    color: white;
+}
+
+.group-list-item{
+    border-top: 1px solid $border-color !important;
+}
+
+.group-list-item-last{
+    border-bottom: 1px solid $border-color !important;
+}
+
+.footer-img-container{
+   
+    width: 100%;
+    overflow: hidden;
+    img{
+        width: 100%;
+        object-fit: contain;
+    }
 }

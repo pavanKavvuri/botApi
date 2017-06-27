@@ -1,7 +1,8 @@
 <ion-menu [content]="content">
     <ion-header>
-        <ion-toolbar>
-            <ion-title>Allianz</ion-title>
+        <ion-toolbar color='allianz-toolbar-color'>
+            <img src='./assets/img/allianz_logo.png' />
+            <!--<ion-title>Allianz</ion-title>-->
         </ion-toolbar>
     </ion-header>
 
@@ -23,28 +24,21 @@
             </ion-row>
         </ion-grid>
 
-        <ion-list radio-group style='margin-top:20px;' [(ngModel)]="groupSelection">
-            <ion-list-header>
-                Report For
-            </ion-list-header>
+        <ion-list no-lines radio-group style='margin-top:20px;' [(ngModel)]="groupSelection">
 
-            <ion-item>
-                <ion-label>ADM AM</ion-label>
-                <ion-radio value="adm"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>SMO</ion-label>
-                <ion-radio value="smo"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>GSD and L1</ion-label>
-                <ion-radio value="gsd"></ion-radio>
+            <ion-item *ngFor='let group of groups; let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item'>
+                <ion-label>{{group.name}}</ion-label>
+                <ion-radio mode='md' item-left value="{{group.value}}"></ion-radio>
             </ion-item>
         </ion-list>
 
+        <div class='footer-img-container'>
+            <img src='../assets/img/menu_slider_bg.png'/>
+        </div>
+
     </ion-content>
+
+
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
