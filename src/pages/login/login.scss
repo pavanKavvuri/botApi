@@ -1,0 +1,81 @@
+page-login {
+
+    $card-background-color: #f1f2f4;
+    $input-border-color: #c8c9cb;
+    $icon-color: #bebfc2;
+
+    .scroll-content{
+        padding: 0 !important;
+        background-size: 100% 100%;
+        background-image: url('../assets/img/CIO_login_bg.jpg');
+    }
+
+    .login-card-row{
+        justify-content: center;
+        text-align: center;
+    }
+    .login-card-container{
+        display: flex;
+        justify-content: center;
+        margin: 0 10% 0 10%;
+        max-width: 360px;
+        max-height: 600px;
+    }
+
+    .card-header{
+        background: $card-background-color;
+    }
+    .card-content {
+        height: 400px;
+        background: $card-background-color;
+    }
+
+    .user-image{
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-item{
+        text-align: center;
+        background: transparent;
+        font-size: 150%;
+    }
+
+    .card-image-container{
+        display:flex;
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 5%;
+    }
+    .card-tag-image{
+         position: absolute;
+         width: 25%;
+         top: -10px;
+    }
+
+    .input-container{
+        margin-top: 16%;
+    }
+
+    .btn-container{
+        margin-top: 2%;
+    }
+
+    .input-item-container{
+        padding: 0;
+        border: 1px solid $input-border-color;
+    }
+
+    .input-icon-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 160%;
+        color: $icon-color;
+        background: white;
+    }
+
+    .input{
+        background: white;
+    }
+}

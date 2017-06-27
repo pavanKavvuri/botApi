@@ -1,0 +1,64 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row class='login-card-row'>
+      <ion-col class='login-card-container'>
+
+        <img class='card-tag-image' src='./assets/img/card_holder.png' />
+
+        <ion-card>
+          <ion-card-header>
+
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-grid>
+
+              <ion-row>
+                <ion-col>
+                  <ion-item class='card-item'>
+                    Let's get started.
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class='card-image-container'>
+                  <img class='user-image' src='./assets/img/profile.png' />
+                </ion-col>
+              </ion-row>
+
+            </ion-grid>
+
+            <div class='input-container'>
+              <ion-grid>
+
+                <ion-row class='input-item-container'>
+                  <ion-col col-2 class='input-icon-container'>
+                    <ion-icon name="mail"></ion-icon>
+                  </ion-col>
+                  <ion-col style='padding:0'>
+                    <ion-input type="email" placeholder="Email / User-ID" name="email" [(ngModel)]="username" required></ion-input>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row class='input-item-container'>
+                  <ion-col col-2 class='input-icon-container'>
+                    <ion-icon name="lock"></ion-icon>
+                  </ion-col>
+                  <ion-col style='padding:0'>
+                    <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
+                  </ion-col>
+                </ion-row>
+
+              </ion-grid>
+            </div>
+            <div class='btn-container'>
+              <button type='submit' ion-button class="submit-btn" block medium color="login-btn-color" (click)="onLogin()">LOGIN</button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

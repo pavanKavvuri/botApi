@@ -1,7 +1,13 @@
 page-score-card {
-  .tableRow{
-      .col{
-          border: 1px solid;
-      }
-  }
+    
+    .scroll-content{
+        padding: 0 !important;
+    }
+
+    .tableRow{
+        .col{
+            border: 1px solid;
+        }
+    }
+    
 }

@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ScoreCardPage } from '../pages/score-card/score-card';
+import { LoginPage } from '../pages/login/login';
 
 import { ChartProvider } from '../providers/chart/chart';
 import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-data';
@@ -17,7 +18,8 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
   declarations: [
     MyApp,
     HomePage,
-    ScoreCardPage
+    ScoreCardPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
   entryComponents: [
     MyApp,
     HomePage,
-    ScoreCardPage
+    ScoreCardPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

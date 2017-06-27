@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import c3 from 'c3';
+import Chart from 'chart.js';
 
 import { ScoreCardPage } from '../score-card/score-card';
 
@@ -33,6 +34,203 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public chartService: ChartProvider) {
 
+  }
+
+  drawNewChart() {
+    let ctx: CanvasRenderingContext2D = (<HTMLCanvasElement>document.getElementById("myChart")).getContext('2d');
+
+    let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: 'rgb(255, 255, 255)'
+          }
+        },
+        maintainAspectRatio: true,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    ctx = (<HTMLCanvasElement>document.getElementById("myAreaChart")).getContext('2d');
+
+    var myAreaChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(153, 102, 255, 1)'
+          ]
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: 'rgb(255, 255, 255)'
+          }
+        },
+        maintainAspectRatio: true,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    ctx = (<HTMLCanvasElement>document.getElementById("myDoughnutChart")).getContext('2d');
+
+    var myDoughnutChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: 'rgb(255, 255, 255)'
+          }
+        },
+        maintainAspectRatio: true,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    ctx = (<HTMLCanvasElement>document.getElementById("myMixedChart")).getContext('2d');
+
+    var myMixedChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        datasets: [{
+          label: 'Bar Dataset',
+          data: [10, 20, 30, 40],
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+          ],
+        }, {
+          label: 'Line Dataset',
+          data: [50, 40, 30, 50],
+          backgroundColor: [
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 159, 64, 1)'
+          ],
+          type: 'line'
+        }],
+        labels: ['January', 'February', 'March', 'April']
+      },
+      options: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: 'rgb(255, 255, 255)'
+          }
+        },
+        maintainAspectRatio: true,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
   }
 
   loadChart(elementRef: ElementRef, activeIncidents: ActiveIncidents) {
@@ -96,7 +294,11 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    this.drawNewChart();
+    this.drawOtherCharts();
+  }
 
+  drawOtherCharts() {
     this.chartService.newDataObservable.subscribe((chartData) => {
       if (this.chart === null) {
         //first time generate chart
@@ -207,7 +409,6 @@ export class HomePage {
         position: 'right'
       }
     });
-
 
   }
 
