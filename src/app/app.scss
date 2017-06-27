@@ -26,10 +26,16 @@ $border-color: #7b7c7c;
     border-radius: 50%;
 }
 
-.toolbar{
+.sidebar-toolbar{
     text-align: center !important;
-    .img{
-        transform: scale(0.8);
+    .toolbar-title{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .toolbar-title-md{
+        width: 50%;
+        margin: auto;
     }
 }
 

@@ -19,13 +19,12 @@ export class HomePage {
   @ViewChild('agingTrendChart') agingTrendChart: ElementRef;
 
   keyUpdates: Array<string> = [
-    'Lorem ipsum ...',
-    'Lorem ipsum ...',
-    'Lorem ipsum ...',
-    'Lorem ipsum ...',
-    'Lorem ipsum ...',
-    'Lorem ipsum ...',
-    'Lorem ipsum ...'
+    'Azure JBOSS EAP 6.4 Post go-live upgrade status',
+    'Bowne Server Migration',
+    'Imbalance between SAP and Cognos report',
+    'Aging Status - 11 incidents',
+    'CIO Dashboard status',
+    'Release 2G live'
   ];
 
   segment: string = 'week';
@@ -163,6 +162,9 @@ export class HomePage {
           data4: 'line',
           data5: 'line',
         }
+      },
+      legend: {
+        position: 'right'
       }
     });
 
@@ -179,6 +181,9 @@ export class HomePage {
         types: {
           data3: 'line'
         }
+      },
+      legend: {
+        position: 'right'
       }
     });
 
@@ -197,6 +202,9 @@ export class HomePage {
           data3: 'line',
           data4: 'line'
         }
+      },
+      legend: {
+        position: 'right'
       }
     });
 
