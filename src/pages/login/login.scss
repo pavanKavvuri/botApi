@@ -78,4 +78,18 @@ page-login {
     .input{
         background: white;
     }
+
+    .footer-image-container{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 2%;
+        background: transparent;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .footer-image{
+        transform: scale(0.6);
+    }
 }

@@ -30,6 +30,12 @@ export class HomePage {
 
   segment: string = 'week';
   chart: any = null;
+  listColors: Array<string> = [
+    '#3fc2c6',
+    '#c63f8b',
+    '#fbe08d',
+    '#7847d0'
+  ];
 
   constructor(public navCtrl: NavController,
     public chartService: ChartProvider) {
@@ -42,27 +48,71 @@ export class HomePage {
     let myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9"],
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Closed Incidents',
+          data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
           backgroundColor: [
-            'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)'
           ],
           borderColor: [
-            'rgba(255,99,132,1)',
             'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)'
           ],
           borderWidth: 1
+        },
+        {
+          label: 'New Incidents',
+          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          backgroundColor: [
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          borderColor: [
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'Line Dataset',
+          data: [50, 40, 30, 50],
+          backgroundColor: [
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 159, 64, 1)'
+          ],
+          type: 'line'
         }]
       },
       options: {
@@ -295,7 +345,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.drawNewChart();
-    this.drawOtherCharts();
+    // this.drawOtherCharts();
   }
 
   drawOtherCharts() {

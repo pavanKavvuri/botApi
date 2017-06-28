@@ -46,14 +46,12 @@
   </ion-grid>
 
   <ion-grid>
-    <ion-row> 
+    <ion-row>
       <ion-col>
         <ion-card style='background: #263238;'>
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Bar Chart
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
+            Bar Chart
+            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
           </ion-card-header>
           <ion-card-content>
             <canvas id="myChart" width="200px" height="100px"></canvas>
@@ -64,10 +62,10 @@
       <ion-col>
         <ion-card style='background: #263238;'>
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Area Chart
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
+
+            Area Chart
+            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
             <canvas id="myAreaChart" width="200px" height="100px"></canvas>
@@ -76,14 +74,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row> 
+    <ion-row>
       <ion-col>
         <ion-card style='background: #263238;'>
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Doughnut Chart
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
+
+            Doughnut Chart
+            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
             <canvas id="myDoughnutChart" width="200px" height="100px"></canvas>
@@ -94,10 +92,10 @@
       <ion-col>
         <ion-card style='background: #263238;'>
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Mixed Chart
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
+
+            Mixed Chart
+            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
             <canvas id="myMixedChart" width="200px" height="100px"></canvas>
@@ -107,7 +105,7 @@
     </ion-row>
   </ion-grid>
 
-
+  <!--
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -168,21 +166,22 @@
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>-->
 
-  <ion-grid>
+  <ion-grid style="padding-top: 0 !important">
     <ion-row>
-      <ion-col>
+      <ion-col style="padding-top: 0 !important">
         <ion-card>
+
           <ion-card-header class='graph-card-header'>
-            <ion-item>
-              Key Updates
-            </ion-item>
+            Key Updates
           </ion-card-header>
-          <ion-card-content>
+
+          <ion-card-content style='padding:0 !important;'>
             <ion-list>
-              <ion-item no-lines *ngFor='let update of keyUpdates'>
-                <ion-label> {{update}}</ion-label>
+              <ion-item class='key-update-item' no-lines *ngFor='let update of keyUpdates; let i=index;' [ngClass]='{"evenRowStyle": i%2==0 , "oddRowStyle": i%2!==0}'
+                [ngStyle]="{'border-left': '3px solid ' + listColors[i%4]}">
+                <ion-label> {{update}} </ion-label>
                 <img class='bullet' src='./assets/img/key_updates_bullet.png' item-left/>
               </ion-item>
             </ion-list>

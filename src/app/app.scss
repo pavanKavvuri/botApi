@@ -15,11 +15,31 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-$background-color: #414243;
+$background-color: #3b4c75;
 $border-color: #7b7c7c;
+$radio-selection-color: #007ab3;
 
 .center-align{
     text-align: center;
+}
+
+.radio-checked{
+    border-color: white !important;
+    .radio-inner{
+        background-color: white !important;
+    }
+}
+
+.item-radio-checked{
+    background: $radio-selection-color !important;
+    border-left: 4px solid #43cae6 !important;
+    .item-inner{
+        .input-wrapper {
+            .label {
+                    color: white;
+                }
+        }
+    } 
 }
 
 .circular-image{
@@ -36,6 +56,9 @@ $border-color: #7b7c7c;
     .toolbar-title-md{
         width: 50%;
         margin: auto;
+    }
+    .toolbar-background{
+        border: none;
     }
 }
 
