@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ScoreCardDataProvider } from '../../providers/score-card-data/score-card-data';
 import { GroupScoreCard } from '../../models/scoreCard';
 
-import c3 from 'c3';
+import Chart from 'chart.js';
 
 @Component({
   selector: 'page-score-card',
@@ -11,7 +11,24 @@ import c3 from 'c3';
 })
 export class ScoreCardPage {
 
+
   @ViewChild('scoreCardChart') scoreCardChart: ElementRef;
+
+  listColors: Array<string> = [
+    '#3fc2c6',
+    '#c63f8b',
+    '#fbe08d',
+    '#7847d0'
+  ];
+
+  keyUpdates: Array<string> = [
+    'Azure JBOSS EAP 6.4 Post go-live upgrade status',
+    'Bowne Server Migration',
+    'Imbalance between SAP and Cognos report',
+    'Aging Status - 11 incidents',
+    'CIO Dashboard status',
+    'Release 2G live'
+  ];
 
   scoreCard: GroupScoreCard = {
     scoreCard: []
@@ -31,51 +48,66 @@ export class ScoreCardPage {
 
   ionViewDidLoad() {
 
-    c3.generate({
-      bindto: this.scoreCardChart.nativeElement,
+    let ctx = (<HTMLCanvasElement>document.getElementById("myScoreCardChart")).getContext('2d');
+    let myMixedChart = new Chart(ctx, {
+      type: 'line',
       data: {
-        names: {
-          'data1': 'Inflow',
-          'data2': 'Closed',
-          'data3': 'Active',
-          'data4': '>30 Days',
+        datasets: [{
+          label: 'Line 1 Dataset',
+          data: [10, 20, 30, 40],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)'
+          ]
         },
-        columns: [
-          ['data1', 30, 20, 50, 40, 30, 20, 50, 40, 10, 20],
-          ['data2', 200, 130, 200, 130, 90, 240, 200, 130, 90, 240],
-          ['data3', 300, 200, 160, 400, 200, 160, 400, 200, 160, 400],
-          ['data4', 200, 130, 90, 200, 130, 90, 200, 130, 90, 240],
-        ],
-        type: 'line',
-        types: {
-          data2: 'line',
-          data3: 'line',
-          data4: 'line'
+        {
+          label: 'Line 2 Dataset',
+          data: [50, 40, 30, 50],
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.2)'
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)'
+          ],
+          type: 'line'
         },
+        {
+          label: 'Line 3 Dataset',
+          data: [15, 25, 11, 40],
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 206, 86, 1)'
+          ],
+          type: 'line'
+        }],
+        labels: ['January', 'February', 'March', 'April']
       },
-      axis: {
-        x: {
-          type: 'category',
-          categories: ['FOAM – AMANDA',
-            'FOAM – AZUR',
-            'FOAM – BIRT',
-            'FOAM – CORES',
-            'FOAM - DE APPS',
-            'FOAM – GPS',
-            'FOAM - GREAT',
-            'FOAM - UNION',
-            'FOAM - FR-APPS',
-            'FOAM - myAGCS'],
-          label: {
-            text: 'Assignment Groups',
-            position: 'outer-center'
+      options: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: 'rgb(255, 255, 255)'
           }
         },
-        y: {
-          label: {
-            text: 'Incidents',
-            position: 'outer-middle'
-          }
+        maintainAspectRatio: true,
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "white",
+              beginAtZero: true
+            }
+          }]
         }
       }
     });

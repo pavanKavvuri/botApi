@@ -1,13 +1,56 @@
 page-score-card {
     
+    $card-header-text:white;
+    $card-header-background: #007ab3;
+    $dashboard-background: #8d95a9;
+    $segment-background: #3f4b67;
+
     .scroll-content{
         padding: 0 !important;
+        background: $dashboard-background;
     }
 
     .tableRow{
         .col{
-            border: 1px solid;
+            border: 1px solid lightcyan;
         }
     }
     
+     .graph-card-header{
+        padding: 0 !important;
+        text-align: left;
+        color: white;
+        padding: 5px 0px 7px 20px !important;
+        background: $card-header-background;
+        .item{
+            color: $card-header-text;
+            background: $card-header-background;
+        }
+    }
+
+    .header-icon{
+        float: right;
+        margin-right: 20px;
+    }
+
+    .bullet{
+        width: auto;
+    }
+
+    .evenRowStyle{
+        background: #3f4b67;
+        color: white;
+    }
+
+    .oddRowStyle{
+        background: #25304a;
+        color: white;
+    }
+    
+    .card{
+        width: auto !important;
+        margin: 0 !important;
+        border-radius: 10px !important;
+    }
+
 }
