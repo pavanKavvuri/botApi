@@ -40,5 +40,5 @@
     "@types/chartjs": "0.0.29",
     "typescript": "2.3.3"
   },
-  "description": "An Ionic project"
+  "description": "CIO Dashboard project"
 }

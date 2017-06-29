@@ -49,7 +49,7 @@ export class ScoreCardPage {
   ionViewDidLoad() {
 
     let ctx = (<HTMLCanvasElement>document.getElementById("myScoreCardChart")).getContext('2d');
-    let myMixedChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',
       data: {
         datasets: [{

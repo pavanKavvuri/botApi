@@ -10,13 +10,13 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage: any = HomePage;
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
+  // rootPage: any = LoginPage;
 
   groupSelection: string = 'adm';
   groups: any = [
     {
-      name: 'ADM AM',
+      name: 'AM',
       value: 'adm'
     },
     {
