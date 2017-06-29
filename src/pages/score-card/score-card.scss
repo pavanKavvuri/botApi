@@ -12,8 +12,13 @@ page-score-card {
 
     .tableRow{
         .col{
-            border: 1px solid lightcyan;
+            //border: 1px solid lightcyan;
         }
+    }
+
+    .table-header{
+        color: white;
+        background: $card-header-background;
     }
     
      .graph-card-header{

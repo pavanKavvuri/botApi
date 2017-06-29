@@ -54,7 +54,7 @@ export class ScoreCardPage {
       data: {
         datasets: [{
           label: 'Line 1 Dataset',
-          data: [10, 20, 30, 40],
+          data: [45, 26, 30, 15],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)'
           ],
