@@ -119,6 +119,7 @@ export class HomePage {
           display: true,
           position: 'top',
           labels: {
+            boxWidth: 12,
             fontColor: 'rgb(255, 255, 255)'
           }
         },
@@ -240,6 +241,7 @@ export class HomePage {
         legend: {
           display: true,
           labels: {
+            boxWidth: 12,
             fontColor: 'rgb(255, 255, 255)'
           }
         },
@@ -351,6 +353,7 @@ export class HomePage {
         legend: {
           display: true,
           labels: {
+            boxWidth: 12,
             fontColor: 'rgb(255, 255, 255)'
           }
         },
@@ -439,6 +442,7 @@ export class HomePage {
         legend: {
           display: true,
           labels: {
+            boxWidth: 12,
             fontColor: 'rgb(255, 255, 255)'
           }
         },
