@@ -105,12 +105,8 @@ export class HomePage {
         {
           label: 'Closed',
           data: [50, 40, 30, 50, 19, 10, 12, 13, 25, 11],
-          backgroundColor: [
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 159, 64, 1)'
-          ],
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgba(255, 159, 64, 1)',
           type: 'line'
         }]
       },
@@ -217,23 +213,15 @@ export class HomePage {
         {
           label: 'Active- IT Change',
           data: [50, 40, 30, 50, 19, 10, 12, 13, 25, 11],
-          backgroundColor: [
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 159, 64, 1)'
-          ],
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgba(255, 159, 64, 1)',
           type: 'line'
         },
         {
           label: 'Active - Bugs',
           data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)'
-          ],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
           type: 'line'
         }]
       },
@@ -340,12 +328,8 @@ export class HomePage {
         {
           label: 'Closed',
           data: [45, 35, 45, 40, 10, 12, 9, 30, 20, 19],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-          ],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
           type: 'line'
         }]
       },
@@ -398,43 +382,27 @@ export class HomePage {
         datasets: [{
           label: 'Awaiting User Info',
           data: [45, 35, 45, 40, 10, 12, 9, 30, 20, 19],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)'
-          ]
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)'
         }, {
           label: '12 weeks aging',
           data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
-          backgroundColor: [
-            'rgba(54, 162, 235, 0.2)'
-          ],
-          borderColor: [
-            'rgba(54, 162, 235, 1)'
-          ],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
           type: 'line'
         },
         {
           label: '>4 and <12 weeks aging',
           data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
-          backgroundColor: [
-            'rgba(255, 206, 86, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 206, 86, 1)'
-          ],
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
           type: 'line'
         },
         {
           label: '1 week aging',
           data: [40, 20, 10, 5, 9, 5, 11, 5, 13],
-          backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-            'rgba(75, 192, 192, 1)',
-          ],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
           type: 'line'
         }],
       },
