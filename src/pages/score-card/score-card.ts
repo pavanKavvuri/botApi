@@ -46,50 +46,58 @@ export class ScoreCardPage {
     });
   }
 
+
   ionViewDidLoad() {
 
     let ctx = (<HTMLCanvasElement>document.getElementById("myScoreCardChart")).getContext('2d');
     new Chart(ctx, {
       type: 'line',
       data: {
+        labels: [
+          'AMANDA',
+          'ARCNET',
+          'AZUR',
+          'BIRT',
+          'CORES',
+          'DE APPS',
+          'GPS',
+          'GREAT',
+          'UNION',
+          'FR-APPS',
+          'myAGCS',
+        ],
         datasets: [{
-          label: 'Line 1 Dataset',
-          data: [45, 26, 30, 15],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)'
-          ]
-        },
-        {
-          label: 'Line 2 Dataset',
-          data: [50, 40, 30, 50],
-          backgroundColor: [
-            'rgba(54, 162, 235, 0.2)'
-          ],
-          borderColor: [
-            'rgba(54, 162, 235, 1)'
-          ],
+          label: 'Inflow',
+          data: [5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)'
+        }, {
+          label: 'Closed',
+          data: [10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
           type: 'line'
         },
         {
-          label: 'Line 3 Dataset',
-          data: [15, 25, 11, 40],
-          backgroundColor: [
-            'rgba(255, 206, 86, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 206, 86, 1)'
-          ],
+          label: 'Active',
+          data: [3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          type: 'line'
+        },
+        {
+          label: '>30 days',
+          data: [0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
           type: 'line'
         }],
-        labels: ['January', 'February', 'March', 'April']
       },
       options: {
         legend: {
           display: true,
           labels: {
+            boxWidth: 12,
             fontColor: 'rgb(255, 255, 255)'
           }
         },
@@ -100,12 +108,24 @@ export class ScoreCardPage {
             ticks: {
               fontColor: "white",
               beginAtZero: true
+            },
+            scaleLabel: {
+              display: true,
+              fontColor: "white",
+              fontSize: 16,
+              labelString: 'Week'
             }
           }],
           yAxes: [{
             ticks: {
               fontColor: "white",
               beginAtZero: true
+            },
+            scaleLabel: {
+              display: true,
+              fontColor: "white",
+              fontSize: 16,
+              labelString: 'No. of Incidents'
             }
           }]
         }

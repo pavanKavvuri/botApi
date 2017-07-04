@@ -50,7 +50,7 @@ export class HomePage {
         labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9"],
         datasets: [{
           label: 'New',
-          data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
+          data: [141, 101, 87, 142, 76, 134, 151, 79, 95, 101],
           backgroundColor: [
             'rgba(54, 162, 235, 1)',
             'rgba(54, 162, 235, 1)',
@@ -77,7 +77,7 @@ export class HomePage {
         },
         {
           label: 'Active',
-          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          data: [162, 143, 122, 137, 113, 128, 126, 85, 89, 93],
           backgroundColor: [
             'rgba(255, 206, 86, 1)',
             'rgba(255, 206, 86, 1)',
@@ -104,7 +104,7 @@ export class HomePage {
         },
         {
           label: 'Closed',
-          data: [50, 40, 30, 50, 19, 10, 12, 13, 25, 11],
+          data: [131, 115, 121, 129, 99, 120, 153, 121, 91, 95],
           backgroundColor: 'rgba(255, 159, 64, 0.2)',
           borderColor: 'rgba(255, 159, 64, 1)',
           type: 'line'
@@ -123,6 +123,9 @@ export class HomePage {
         responsive: true,
         scales: {
           xAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -135,6 +138,9 @@ export class HomePage {
             }
           }],
           yAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -158,7 +164,7 @@ export class HomePage {
         labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9"],
         datasets: [{
           label: 'New',
-          data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
+          data: [6, 8, 4, 6, 11, 6, 6, 10, 8, 8],
           backgroundColor: [
             'rgba(54, 162, 235, 1)',
             'rgba(54, 162, 235, 1)',
@@ -185,7 +191,7 @@ export class HomePage {
         },
         {
           label: 'Closed',
-          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          data: [6, 7, 5, 4, 2, 16, 0, 5, 19, 5],
           backgroundColor: [
             'rgba(255, 206, 86, 1)',
             'rgba(255, 206, 86, 1)',
@@ -212,14 +218,14 @@ export class HomePage {
         },
         {
           label: 'Active- IT Change',
-          data: [50, 40, 30, 50, 19, 10, 12, 13, 25, 11],
+          data: [115, 114, 109, 110, 112, 113, 115, 117, 112, 113],
           backgroundColor: 'rgba(255, 159, 64, 0.2)',
           borderColor: 'rgba(255, 159, 64, 1)',
           type: 'line'
         },
         {
           label: 'Active - Bugs',
-          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          data: [118, 114, 117, 118, 125, 112, 117, 120, 114, 115],
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)',
           type: 'line'
@@ -237,6 +243,9 @@ export class HomePage {
         responsive: true,
         scales: {
           xAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -249,6 +258,9 @@ export class HomePage {
             }
           }],
           yAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -273,7 +285,7 @@ export class HomePage {
         labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9"],
         datasets: [{
           label: 'New',
-          data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
+          data: [63, 65, 43, 58, 44, 45, 57, 42, 60, 54],
           backgroundColor: [
             'rgba(239, 108, 0, 1)',
             'rgba(239, 108, 0, 1)',
@@ -300,7 +312,7 @@ export class HomePage {
         },
         {
           label: 'Active',
-          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          data: [135, 139, 130, 148, 135, 131, 117, 123, 120, 109],
           backgroundColor: [
             'rgba(75, 192, 192, 1)',
             'rgba(75, 192, 192, 1)',
@@ -327,7 +339,7 @@ export class HomePage {
         },
         {
           label: 'Closed',
-          data: [45, 35, 45, 40, 10, 12, 9, 30, 20, 19],
+          data: [78, 86, 54, 47, 55, 49, 70, 39, 65, 72],
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)',
           type: 'line'
@@ -345,6 +357,9 @@ export class HomePage {
         responsive: true,
         scales: {
           xAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -357,6 +372,9 @@ export class HomePage {
             }
           }],
           yAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -381,26 +399,26 @@ export class HomePage {
         labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9"],
         datasets: [{
           label: 'Awaiting User Info',
-          data: [45, 35, 45, 40, 10, 12, 9, 30, 20, 19],
+          data: [28, 28, 28, 29, 27, 21, 23, 20, 12, 14],
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)'
         }, {
           label: '12 weeks aging',
-          data: [4, 8, 13, 10, 12, 9, 12, 5, 18],
+          data: [5, 3, 3, 3, 4, 4, 3, 0, 0, 0],
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           borderColor: 'rgba(54, 162, 235, 1)',
           type: 'line'
         },
         {
           label: '>4 and <12 weeks aging',
-          data: [12, 19, 3, 5, 2, 3, 1, 5, 8],
+          data: [19, 18, 17, 15, 18, 14, 15, 9, 9, 11],
           backgroundColor: 'rgba(255, 206, 86, 0.2)',
           borderColor: 'rgba(255, 206, 86, 1)',
           type: 'line'
         },
         {
           label: '1 week aging',
-          data: [40, 20, 10, 5, 9, 5, 11, 5, 13],
+          data: [83, 89, 77, 64, 70, 63, 62, 44, 35, 40],
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
           type: 'line'
@@ -418,6 +436,9 @@ export class HomePage {
         responsive: true,
         scales: {
           xAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true
@@ -430,6 +451,9 @@ export class HomePage {
             }
           }],
           yAxes: [{
+            gridLines: {
+              color: "rgba(69, 90, 100, 0.6)"
+            },
             ticks: {
               fontColor: "white",
               beginAtZero: true

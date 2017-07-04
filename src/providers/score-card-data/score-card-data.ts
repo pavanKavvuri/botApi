@@ -33,67 +33,122 @@ export class ScoreCardDataProvider {
     scoreCard: [
       {
         groupName: 'FOAM – AMANDA',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '5',
+          closed: '10',
+          active: '3',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM – ARCNET',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '3',
+          closed: '1',
+          active: '2',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM – AZUR',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '3',
+          closed: '1',
+          active: '3',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM – BIRT',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '-',
+          closed: '-',
+          active: '-',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM – CORES',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '8',
+          closed: '11',
+          active: '9',
+          gt30Days: '2'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM - DE APPS',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '-',
+          closed: '-',
+          active: '-',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM – GPS',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '-',
+          closed: '2',
+          active: '-',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM - GREAT',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '-',
+          closed: '-',
+          active: '1',
+          gt30Days: '1'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM - UNION',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '-',
+          closed: '-',
+          active: '-',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM - FR-APPS',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '5',
+          closed: '9',
+          active: '2',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },
       {
         groupName: 'FOAM - myAGCS',
-        incidentScoreCard: this.incidents,
+        incidentScoreCard: {
+          inflow: '1',
+          closed: '1',
+          active: '-',
+          gt30Days: '-'
+        },
         enhancementScoreCard: this.enhancements,
         serviceReqScoreCard: this.servicereq
       },

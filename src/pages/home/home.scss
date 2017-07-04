@@ -1,9 +1,7 @@
 page-home {
-    // $card-header-text:#00447f;
+    
     $card-header-text:white;
-    // $card-header-background: #7adedb;
     $card-header-background: #007ab3;
-    // $dashboard-background: #1f232e;
     $dashboard-background: #8d95a9;
     $segment-background: #3f4b67;
 
@@ -46,6 +44,10 @@ page-home {
             color: $card-header-text;
             background: $card-header-background;
         }
+    }
+
+    .graph-background{
+        background: #25304a;
     }
 
     .header-icon{
