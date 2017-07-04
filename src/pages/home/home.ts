@@ -76,8 +76,8 @@ export class HomePage {
           borderWidth: 1
         },
         {
-          label: 'Active',
-          data: [162, 143, 122, 137, 113, 128, 126, 85, 89, 93],
+          label: 'Closed',
+          data: [131, 115, 121, 129, 99, 120, 153, 121, 91, 95],
           backgroundColor: [
             'rgba(255, 206, 86, 1)',
             'rgba(255, 206, 86, 1)',
@@ -103,8 +103,8 @@ export class HomePage {
           borderWidth: 1
         },
         {
-          label: 'Closed',
-          data: [131, 115, 121, 129, 99, 120, 153, 121, 91, 95],
+          label: 'Active',
+          data: [162, 143, 122, 137, 113, 128, 126, 85, 89, 93],
           backgroundColor: 'rgba(255, 159, 64, 0.2)',
           borderColor: 'rgba(255, 159, 64, 1)',
           type: 'line'
@@ -311,8 +311,8 @@ export class HomePage {
           borderWidth: 1
         },
         {
-          label: 'Active',
-          data: [135, 139, 130, 148, 135, 131, 117, 123, 120, 109],
+          label: 'Closed',
+          data: [78, 86, 54, 47, 55, 49, 70, 39, 65, 72],
           backgroundColor: [
             'rgba(75, 192, 192, 1)',
             'rgba(75, 192, 192, 1)',
@@ -338,8 +338,8 @@ export class HomePage {
           borderWidth: 1
         },
         {
-          label: 'Closed',
-          data: [78, 86, 54, 47, 55, 49, 70, 39, 65, 72],
+          label: 'Active',
+          data: [135, 139, 130, 148, 135, 131, 117, 123, 120, 109],
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)',
           type: 'line'
