@@ -7,6 +7,9 @@ page-home {
 
     text-align: center;
   
+    .toolbar{
+        padding: 0 !important;
+    }
     .toolbar-title-md{
         text-align: left;
     }
@@ -47,7 +50,7 @@ page-home {
     }
 
     .graph-background{
-        background: #25304a;
+         background: #25304a;
     }
 
     .header-icon{
@@ -71,5 +74,9 @@ page-home {
     .oddRowStyle{
         background: #25304a;
         color: white;
+    }
+
+    .chart-canvas{
+        
     }
 }

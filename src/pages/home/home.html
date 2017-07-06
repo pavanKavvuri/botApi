@@ -11,21 +11,24 @@
 
     <ion-buttons end>
 
-      <button ion-button icon-only>
+      <!--<button ion-button icon-only>
          <img class='toolbar-button-icons' src='./assets/img/notification.png' />
       </button>
       <button ion-button icon-only>
           <img class='toolbar-button-icons' src='./assets/img/more_icon.png' />
       </button>
-      <!--<button ion-button icon-only><ion-icon name="ios-notifications"></ion-icon></button>
-      <button ion-button icon-only><ion-icon name="ios-more"></ion-icon></button>-->
+      <button ion-button icon-only>
+          <img class='toolbar-button-icons' src='./assets/img/more_icon.png' />
+      </button>-->
+      <button ion-button icon-only><ion-icon name="ios-notifications"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="ios-chatboxes"></ion-icon></button>
     </ion-buttons>
 
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content no-bounce>
 
   <ion-grid style='padding: 0'>
     <ion-row class='segment-container'>
@@ -47,19 +50,21 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
             Trend of Active Incidents
             <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
           </ion-card-header>
           <ion-card-content>
-            <canvas id="myChart" width="200px" height="100px"></canvas>
+            <div class="chart-canvas">
+              <canvas id="myChart" height="200px"></canvas>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
@@ -68,28 +73,32 @@
 
           </ion-card-header>
           <ion-card-content>
-            <canvas id="myAreaChart" width="200px" height="100px"></canvas>
+            <div class="chart-canvas">
+              <canvas id="myAreaChart" height="200px"></canvas>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
             Trend of Service Requests
-            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+            <ion-icon class="chart-canvas" class='header-icon' name="ios-arrow-forward"></ion-icon>
 
           </ion-card-header>
           <ion-card-content>
-            <canvas id="myDoughnutChart" width="200px" height="100px"></canvas>
+            <div class="chart-canvas">
+              <canvas id="myDoughnutChart" height="200px"></canvas>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
@@ -98,7 +107,9 @@
 
           </ion-card-header>
           <ion-card-content>
-            <canvas id="myMixedChart" width="200px" height="100px"></canvas>
+            <div class="chart-canvas">
+              <canvas id="myMixedChart" height="200px"></canvas>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>

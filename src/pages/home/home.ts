@@ -531,10 +531,11 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    console.log('did load');
     this.drawNewChart();
     // this.drawOtherCharts();
   }
-
+  
   // drawOtherCharts() {
   //   this.chartService.newDataObservable.subscribe((chartData) => {
   //     if (this.chart === null) {

@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-bounce>
 
   <ion-grid>
 
@@ -17,16 +17,18 @@
           <ion-card-header class='graph-card-header'>
 
             FOAM EU Maintenance – Weekly Scorecard
-            
+
           </ion-card-header>
           <ion-card-content>
-            <canvas id="myScoreCardChart" width="200px" height="100px"></canvas>
+            <div class="chart-canvas">
+              <canvas id="myScoreCardChart" height="200px"></canvas>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <!--<ion-row>
       <ion-col>
         <ion-card>
           <ion-card-header class='graph-card-header' style='text-align: center;'>
@@ -77,11 +79,8 @@
         </ion-card>
       </ion-col>
 
-    </ion-row>
-  </ion-grid>
+    </ion-row>-->
 
-
-  <ion-grid style="padding-top: 0 !important">
     <ion-row>
       <ion-col style="padding-top: 0 !important">
         <ion-card>
@@ -103,6 +102,26 @@
       </ion-col>
     </ion-row>
 
+    <ion-row>
+      <ion-col style="padding-top: 0 !important">
+        <ion-card>
+
+          <ion-card-header class='graph-card-header'>
+            Key Updates
+          </ion-card-header>
+
+          <ion-card-content style='padding:0 !important;'>
+            <ion-list>
+              <ion-item no-lines *ngFor='let update of keyUpdates; let i=index;' [ngClass]='{"evenRowStyle": i%2==0 , "oddRowStyle": i%2!==0}'
+                [ngStyle]="{'border-left': '3px solid ' + listColors[i%4]}">
+                <ion-label> {{update}} </ion-label>
+                <img class='bullet' src='./assets/img/key_updates_bullet.png' item-left/>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
 </ion-content>
