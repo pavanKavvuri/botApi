@@ -5,12 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { TestPage } from '../pages/test/test';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any = HomePage;
+  // rootPage: any = TestPage;
   // rootPage: any = LoginPage;
 
   groupSelection: string = 'adm';

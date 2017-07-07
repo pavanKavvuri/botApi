@@ -10,7 +10,6 @@
     </ion-title>
 
     <ion-buttons end>
-
       <!--<button ion-button icon-only>
          <img class='toolbar-button-icons' src='./assets/img/notification.png' />
       </button>
@@ -48,23 +47,22 @@
     </ion-row>
   </ion-grid>
 
+
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
             Trend of Active Incidents
             <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
           </ion-card-header>
           <ion-card-content>
-            <div class="chart-canvas">
-              <canvas id="myChart" height="200px"></canvas>
-            </div>
+            <div #activeIncidentsChart></div>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
@@ -73,16 +71,14 @@
 
           </ion-card-header>
           <ion-card-content>
-            <div class="chart-canvas">
-              <canvas id="myAreaChart" height="200px"></canvas>
-            </div>
+            <div #activeEnhancementsChart></div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
@@ -91,14 +87,12 @@
 
           </ion-card-header>
           <ion-card-content>
-            <div class="chart-canvas">
-              <canvas id="myDoughnutChart" height="200px"></canvas>
-            </div>
+            <div #serviceRequestsChart></div>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6>
+      <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
           <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
@@ -107,79 +101,14 @@
 
           </ion-card-header>
           <ion-card-content>
-            <div class="chart-canvas">
-              <canvas id="myMixedChart" height="200px"></canvas>
-            </div>
+            <div #agingTrendChart></div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <!--
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Trend of Active Incidents
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <div #activeIncidentsChart></div>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-      <ion-col>
-        <ion-card>
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            <ion-item>
-              Trend of Active Enhancements
-              <ion-icon item-right name="ios-arrow-forward"></ion-icon>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <div #activeEnhancementsChart></div>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header class='graph-card-header'>
-            <ion-item>
-              Trend of Service Requests
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <div #serviceRequestsChart></div>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-
-      <ion-col>
-        <ion-card>
-          <ion-card-header class='graph-card-header'>
-            <ion-item>
-              Trend of Aging >4 weeks, >12 weeks and Awaiting User Info
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <div #agingTrendChart></div>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>-->
-
-  <ion-grid style="padding-top: 0 !important">
+  <!--<ion-grid style="padding-top: 0 !important">
     <ion-row>
       <ion-col style="padding-top: 0 !important">
         <ion-card>
@@ -201,8 +130,6 @@
       </ion-col>
     </ion-row>
 
-  </ion-grid>
-
-
+  </ion-grid>-->
 
 </ion-content>

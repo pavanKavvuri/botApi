@@ -15,6 +15,25 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+// c3 config 
+ 
+    .c3 path, .c3 line{ 
+         stroke: #ECEFF1;
+         //stroke: black;
+         font-size: 1.2rem;
+    }
+
+    .c3 path{
+        stroke-width: 0.1rem;
+    }
+
+    .tick text, text{
+        fill: #ECEFF1;
+        //fill: black;
+    }
+
+// ...........................
 $background-color: #3b4c75;
 $border-color: #7b7c7c;
 $radio-selection-color: #007ab3;

@@ -4,6 +4,7 @@ import { ScoreCardDataProvider } from '../../providers/score-card-data/score-car
 import { GroupScoreCard } from '../../models/scoreCard';
 
 import Chart from 'chart.js';
+import c3 from 'c3';
 
 @Component({
   selector: 'page-score-card',
@@ -43,6 +44,69 @@ export class ScoreCardPage {
   ngOnInit() {
     this.dataSource.scoreCardData.subscribe(val => {
       this.scoreCard = val;
+    });
+  }
+
+
+  ionViewDidLoad() {
+    c3.generate({
+      bindto: this.scoreCardChart.nativeElement,
+      data: {
+        names: {
+          '1': 'Awaiting User Info',
+          '2': '12 weeks aging',
+          '3': '>4 and <12 weeks aging',
+          '4': '1 week aging'
+        },
+        columns: [
+          ['1', 5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
+          ['2', 10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
+          ['3', 3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
+          ['4', 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0],
+        ],
+        type: 'area-spline',
+        types: {
+          '2': 'area-spline',
+          '3': 'area-spline',
+          '4': 'area-spline'
+        },
+        colors: {
+          '1': '#ffce56',
+          '2': '#36a2eb',
+          '3': '#ff6384',
+          '4': '#ef6c00',
+        }
+      },
+      axis: {
+        x: {
+          type: 'category',
+          categories: [
+            'AMANDA',
+            'ARCNET',
+            'AZUR',
+            'BIRT',
+            'CORES',
+            'DE APPS',
+            'GPS',
+            'GREAT',
+            'UNION',
+            'FR-APPS',
+            'myAGCS'],
+          label: {
+            text: 'Weeks',
+            position: 'outer-center'
+          }
+        },
+        y: {
+          label: {
+            text: 'No. of Incidents',
+            position: 'outer-middle'
+          }
+        }
+      },
+      legend: {
+        position: 'bottom'
+      }
     });
   }
 
