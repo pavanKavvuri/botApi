@@ -11,7 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ScoreCardPage } from '../pages/score-card/score-card';
 import { LoginPage } from '../pages/login/login';
-import { TestPage } from '../pages/test/test';
+import { ChatPage } from '../pages/chat/chat';
 
 import { ChartProvider } from '../providers/chart/chart';
 import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-data';
@@ -22,7 +22,7 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
     HomePage,
     ScoreCardPage,
     LoginPage,
-    TestPage
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
     HomePage,
     ScoreCardPage,
     LoginPage,
-    TestPage
+    ChatPage
   ],
   providers: [
     StatusBar,

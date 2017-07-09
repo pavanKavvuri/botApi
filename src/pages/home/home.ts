@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import Chart from 'chart.js';
 import c3 from 'c3';
 import { ScoreCardPage } from '../score-card/score-card';
+import { ChatPage } from '../chat/chat';
 
 import { ChartProvider } from '../../providers/chart/chart';
 import { ActiveIncidents } from '../../models/weeklyMetrices';
@@ -744,4 +745,8 @@ export class HomePage {
     this.navCtrl.push(ScoreCardPage);
   }
 
+
+  onChatClick() {
+    this.navCtrl.push(ChatPage);
+  }
 }

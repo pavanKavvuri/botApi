@@ -7,6 +7,7 @@ page-login {
     .scroll-content{
         padding: 0 !important;
         background-size: 100% 100%;
+        background-size: cover;
         background-image: url('../assets/img/CIO_login_bg.jpg');
     }
 
@@ -18,8 +19,8 @@ page-login {
         display: flex;
         justify-content: center;
         margin: 0 10% 0 10%;
-        max-width: 360px;
-        max-height: 600px;
+        max-width: 350px;
+        max-height: 480px;
     }
 
     .card-header{
@@ -36,6 +37,7 @@ page-login {
     }
 
     .card-item{
+        margin-top: 20px !important;
         text-align: center;
         background: transparent;
         font-size: 150%;
@@ -51,10 +53,11 @@ page-login {
          position: absolute;
          width: 25%;
          top: -10px;
+         left: 38%;
     }
 
     .input-container{
-        margin-top: 16%;
+        margin-top: 8%;
     }
 
     .btn-container{
