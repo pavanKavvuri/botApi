@@ -2,23 +2,26 @@
 
   <ion-navbar color='header-color'>
     <ion-title>Chat</ion-title>
+    <!--<ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>-->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-<!--
+  
   <ion-list>
     <ion-item *ngFor='let message of messages' text-wrap no-lines>
       <div [ngClass]="{'left': message.user, 'right': !message.user}">
         <span>{{message.text}}</span>
       </div>
     </ion-item>
-  </ion-list>-->
+  </ion-list>
 
 </ion-content>
-<!--
+
 <ion-footer>
   <form #myForm="ngForm">
     <ion-item no-lines>
@@ -27,4 +30,4 @@
     </ion-item>
   </form>
 
-</ion-footer>-->
+</ion-footer>

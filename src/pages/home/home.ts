@@ -537,6 +537,7 @@ export class HomePage {
     this.drawOtherCharts();
   }
 
+
   drawOtherCharts() {
     // this.chartService.newDataObservable.subscribe((chartData) => {
     //   if (this.chart === null) {

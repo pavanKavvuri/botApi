@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Content } from 'ionic-angular';
 
 interface Message {
@@ -8,18 +8,7 @@ interface Message {
 
 @Component({
   selector: 'page-chat',
-  templateUrl: 'chat.html',
-  styles: [`
-    .scroll-content {
-      display: flex !important;
-      flex-direction: column !important;
-    }
-    .scroll-content ion-list {
-      margin-top: auto !important;
-      margin-bottom: 0 !important;
-    }
-  `],
-  encapsulation: ViewEncapsulation.None
+  templateUrl: 'chat.html'
 })
 export class ChatPage {
   @ViewChild(Content) content: Content;
@@ -62,4 +51,5 @@ export class ChatPage {
     let dimension = this.content.getContentDimensions();
     this.content.scrollTo(0, dimension.scrollHeight);
   }
+
 }
