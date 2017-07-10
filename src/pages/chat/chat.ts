@@ -20,15 +20,15 @@ export class ChatPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.messages = [
       {
-        text: 'Hi my name is hobbit',
+        text: 'Hi',
         user: true
       },
       {
-        text: 'lorem',
+        text: 'How are you?',
         user: false
       },
       {
-        text: 'dkckkiieifilk',
+        text: 'Doing fine.',
         user: true
       }
     ]
