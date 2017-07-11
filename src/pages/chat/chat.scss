@@ -1,13 +1,26 @@
 page-chat {
 
+    $right-bubble-color: #007ab3;
+    $left-bubble-color: #CFD8DC;
+
     .scroll-content {
       display: flex !important;
       flex-direction: column !important;
+    //   background: color($colors, dashboard-background);
+      background: #3f4b67;
     }
     .scroll-content ion-list {
       margin-top: auto !important;
       margin-bottom: 0 !important;
     }
+    
+    .chat-item{
+        background: transparent !important;
+    }
+
+    // '1': '#03A9F4',
+    //       '2': '#FFD54F',
+    //       '3': '#FB8C00'
     
     .left{
         text-align: left;
@@ -17,7 +30,7 @@ page-chat {
             max-width: 500px;
             height: auto;
             border-radius: 10px;
-            background: #CFD8DC;
+            background: $left-bubble-color;
             padding: 3%;
         }
     }
@@ -30,12 +43,36 @@ page-chat {
             max-width: 500px;
             height: auto;
             border-radius: 10px;
-            background: #01579B;
+            background: $right-bubble-color;
             color: white;
             padding: 3%;
         }
     }
 
-    
+    .left:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: -0.8%;
+        right: auto;
+        top: 30%;
+        bottom: auto;
+        border: 14px solid;
+        border-color: $left-bubble-color $left-bubble-color transparent transparent;
+    }
   
+    .right:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: auto;
+        right: -0.8%;
+        top: 30%;
+        bottom: auto;
+        border: 14px solid;
+        border-color: $right-bubble-color transparent transparent $right-bubble-color;
+
+    }
 }

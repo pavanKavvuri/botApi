@@ -2,7 +2,6 @@ page-home {
    
     $card-header-text:white;
     $card-header-background: #007ab3;
-    $dashboard-background: #8d95a9;
     $segment-background: #3f4b67;
 
     text-align: center;
@@ -14,7 +13,7 @@ page-home {
         text-align: left;
     }
     .scroll-content{
-        background: $dashboard-background;
+        background: color($colors, dashboard-background);
     }
 
     .segment-container{

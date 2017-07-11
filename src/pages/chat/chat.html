@@ -11,12 +11,10 @@
 
 
 <ion-content>
-  
+
   <ion-list>
-    <ion-item *ngFor='let message of messages' text-wrap no-lines>
-      <div [ngClass]="{'left': message.user, 'right': !message.user}">
-        <span>{{message.text}}</span>
-      </div>
+    <ion-item class="chat-item" *ngFor='let message of messages' text-wrap no-lines [ngClass]="{'left': message.user, 'right': !message.user}">
+      <span>{{message.text}}</span>
     </ion-item>
   </ion-list>
 
@@ -25,7 +23,8 @@
 <ion-footer>
   <form #myForm="ngForm">
     <ion-item no-lines>
-      <ion-input type="text" placeholder="Enter something here..." [(ngModel)]="inputMessage" [ngModelOptions]="{standalone: true}" maxlength="45"></ion-input>
+      <ion-input type="text" placeholder="Enter something here..." [(ngModel)]="inputMessage" [ngModelOptions]="{standalone: true}"
+        maxlength="45"></ion-input>
       <button ion-button item-right outline type="submit" (click)="onSend()"> Send </button>
     </ion-item>
   </form>
