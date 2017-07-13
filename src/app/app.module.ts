@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { ScoreCardPage } from '../pages/score-card/score-card';
 import { LoginPage } from '../pages/login/login';
 import { ChatPage } from '../pages/chat/chat';
+import { TestPage } from '../pages/test/test';
 
 import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
 import { ChartDataProvider } from '../providers/chart-data/chart-data';
@@ -22,7 +23,8 @@ import { ChartDataProvider } from '../providers/chart-data/chart-data';
     HomePage,
     ScoreCardPage,
     LoginPage,
-    ChatPage
+    ChatPage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { ChartDataProvider } from '../providers/chart-data/chart-data';
     HomePage,
     ScoreCardPage,
     LoginPage,
-    ChatPage
+    ChatPage,
+    TestPage
   ],
   providers: [
     StatusBar,

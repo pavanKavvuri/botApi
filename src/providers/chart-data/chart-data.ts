@@ -1,18 +1,66 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { chartNames, chartLegendConfig } from '../../assets/data/apiRespChartsNames';
+import { ChartData } from '../../models/chartData';
 
-/*
-  Generated class for the ChartDataProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class ChartDataProvider {
 
+  weeksArray: Array<string>;
+  staticData: any;
+  
   constructor(public http: Http) {
-    console.log('Hello ChartDataProvider Provider');
+
+  }
+
+  load() {
+    console.log('%cLoading Start', 'font-size: 20px; color: red;')
+    this.http.get('./assets/data/result.json').subscribe(res => {
+      let result = res.json();
+
+      this.staticData = result;
+      this.weeksArray = result["weekArray"];
+      console.log('%cLoading Done', 'font-size: 20px; color: blue;')
+    });
+  }
+
+  test(group: string) {
+    console.log(group);
+  }
+
+  getGroupData(groupName: string) {
+    //TODO: check if staticData is undefined
+
+    let chartData: Array<ChartData> = [];
+
+    try {
+      if (this.staticData) {
+        chartNames.forEach((chartName) => {
+          Object.keys(this.staticData[chartName]).map(apiGroupName => {
+            if (apiGroupName.toLocaleLowerCase().includes(groupName)) {
+              //console.log(`%c${chartName} ->`, 'color: green;', this.staticData[chartName][apiGroupName]);
+              let content = [];
+
+              chartLegendConfig[chartName].map((legend) => {
+                if ((this.staticData[chartName][apiGroupName][legend]).length !== 0) {
+                  content.push(this.staticData[chartName][apiGroupName][legend]);
+                }
+              });
+
+              chartData.push({
+                chartName,
+                content,
+                weeks: this.weeksArray
+              });
+
+            }
+          });
+        });
+      }
+    } catch (e) { console.error(e); }
+
+    return chartData;
   }
 
 }

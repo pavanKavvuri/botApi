@@ -7,6 +7,7 @@ import Group from '../models/group';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { TestPage } from '../pages/test/test';
 
 import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
 
@@ -37,6 +38,7 @@ export class MyApp {
   }
 
   radioChanges() {
+    // console.log('MENU -> ', this.selectedGroupValue);
     this.groupSelectionService.setGroup(this.selectedGroupValue);
   }
 

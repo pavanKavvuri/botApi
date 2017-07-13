@@ -19,7 +19,7 @@ export class GroupSelectionProvider {
     this.selectedGroup = this.initalValue;
   }
 
-  get currentGroup(): Observable<Group> {
+  currentGroup(): Observable<Group> {
     return this._groupChanges.asObservable();
   }
 
@@ -31,16 +31,14 @@ export class GroupSelectionProvider {
     return this.selectedGroup;
   }
 
-
   setGroup(value: string) {
     if (this.selectedGroup.value !== value) {
       this.selectedGroup = this.getGroupFromValue(value);
-      this._groupChanges.next(this.selectedGroup);
+      this._groupChanges.next(Object.assign({}, this.selectedGroup));
     }
   }
 
   /**UTIL */
-
   getGroupFromValue(value: string): Group {
     let group: Group;
     groups.forEach((g) => {

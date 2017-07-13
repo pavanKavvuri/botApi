@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TestPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
+import { GroupSelectionProvider } from '../../providers/group-selection/group-selection';
+
 @Component({
   selector: 'page-test',
   templateUrl: 'test.html',
 })
 export class TestPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public service: GroupSelectionProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
+    this.service.currentGroup().subscribe((val) => {
+      console.log('TEST -> ', val);
+    });
   }
 
 }
