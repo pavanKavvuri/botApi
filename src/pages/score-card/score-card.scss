@@ -1,5 +1,10 @@
 page-score-card {
     
+    .c3-axis-x text 
+    {
+        font-size: 75%; //change the size of the fonts
+    }
+
     $card-header-text:white;
     $card-header-background: #007ab3;
     $dashboard-background: #8d95a9;

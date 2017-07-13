@@ -9,6 +9,7 @@ page-login {
         background-size: 100% 100%;
         background-size: cover;
         background-image: url('../assets/img/CIO_login_bg.jpg');
+        overflow-y: scroll;
     }
 
     .login-card-row{

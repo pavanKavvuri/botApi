@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,8 +13,8 @@ import { ScoreCardPage } from '../pages/score-card/score-card';
 import { LoginPage } from '../pages/login/login';
 import { ChatPage } from '../pages/chat/chat';
 
-import { ChartProvider } from '../providers/chart/chart';
-import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-data';
+import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
+import { ChartDataProvider } from '../providers/chart-data/chart-data';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,7 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
-    ChartsModule
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,8 +41,8 @@ import { ScoreCardDataProvider } from '../providers/score-card-data/score-card-d
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ChartProvider,
-    ScoreCardDataProvider
+    GroupSelectionProvider,
+    ChartDataProvider
   ]
 })
 export class AppModule { }

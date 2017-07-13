@@ -38,13 +38,15 @@ export class ChatPage {
   }
 
   onSend() {
-    this.messages.push({
-      text: this.inputMessage,
-      user: this.alternate
-    });
-    this.inputMessage = '';
-    this.alternate = !this.alternate;
-    this.scrollToBottom();
+    if (this.inputMessage.length !== 0) {
+      this.messages.push({
+        text: this.inputMessage,
+        user: this.alternate
+      });
+      this.inputMessage = '';
+      this.alternate = !this.alternate;
+      this.scrollToBottom();
+    }
   }
 
   scrollToBottom() {

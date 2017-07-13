@@ -1,9 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ScoreCardDataProvider } from '../../providers/score-card-data/score-card-data';
 import { GroupScoreCard } from '../../models/scoreCard';
 
-import Chart from 'chart.js';
 import c3 from 'c3';
 
 @Component({
@@ -36,17 +34,9 @@ export class ScoreCardPage {
   };
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    private dataSource: ScoreCardDataProvider) {
+    public navParams: NavParams) {
 
   }
-
-  ngOnInit() {
-    this.dataSource.scoreCardData.subscribe(val => {
-      this.scoreCard = val;
-    });
-  }
-
 
   ionViewDidLoad() {
     c3.generate({
@@ -92,10 +82,10 @@ export class ScoreCardPage {
             'UNION',
             'FR-APPS',
             'myAGCS'],
-          label: {
-            text: 'Weeks',
-            position: 'outer-center'
-          }
+          // label: {
+          //   text: 'Weeks',
+          //   position: 'outer-center'
+          // }
         },
         y: {
           label: {

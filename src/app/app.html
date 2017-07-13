@@ -16,18 +16,24 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-            <ion-row class='center-align'>
+
+            <!--<ion-row class='center-align'>
                 <ion-col style='padding: 0 !important; color: white;'>
-                    <!--<ion-item no-lines class='center-align sidebar-item'>-->
                     Peter Wiesinger
-                    <!--</ion-item>-->
+                </ion-col>
+            </ion-row>-->
+
+            <ion-row class='center-align'>
+                <ion-col style='padding-top: 10px !important; color: white;'>
+                    <button ion-button color="light" outline small (click)="logout()">Logout</button>
                 </ion-col>
             </ion-row>
+
         </ion-grid>
 
-        <ion-list no-lines radio-group style='margin-top:20px;' [(ngModel)]="groupSelection">
+        <ion-list no-lines radio-group style='margin-top:20px;' [(ngModel)]="selectedGroupValue" (ionChange)="radioChanges()">
 
-            <ion-item *ngFor='let group of groups; let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item sidebar-item'>
+            <ion-item *ngFor='let group of groupSelectionService.getAllGroups(); let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item sidebar-item'>
                 <ion-label>{{group.name}}</ion-label>
                 <ion-radio mode='md' item-left value="{{group.value}}"></ion-radio>
             </ion-item>
