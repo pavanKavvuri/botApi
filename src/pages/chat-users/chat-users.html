@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar color='header-color'>
+    <ion-title>Chat Users</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list no-lines>
+    <ion-item (click)="launchChat(user.name.first , user.name.last)" *ngFor="let user of users | async" no-lines>
+      <ion-avatar item-start>
+        <img src="{{user.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>{{user.name.first | capitalize }} {{user.name.last | capitalize}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -16,8 +16,13 @@ export class ChatPage {
   inputMessage: string = '';
   messages: Array<Message> = [];
   alternate: boolean = false;
+  user = {
+    first: '',
+    last: ''
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.user = { first: this.navParams.get('first'), last: this.navParams.get('last') };
     this.messages = [
       {
         text: 'Hi',

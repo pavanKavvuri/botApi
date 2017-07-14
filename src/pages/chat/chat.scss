@@ -6,8 +6,8 @@ page-chat {
     .scroll-content {
       display: flex !important;
       flex-direction: column !important;
-    //   background: color($colors, dashboard-background);
-      background: #3f4b67;
+      background: color($colors, dashboard-background);
+     // background: #3f4b67;
     }
     .scroll-content ion-list {
       margin-top: auto !important;

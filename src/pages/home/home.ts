@@ -3,7 +3,7 @@ import { NavController, ToastController, LoadingController } from 'ionic-angular
 import c3 from 'c3';
 
 import { ScoreCardPage } from '../score-card/score-card';
-import { ChatPage } from '../chat/chat';
+import { ChatUsersPage } from '../chat-users/chat-users';
 
 import { GroupSelectionProvider } from '../../providers/group-selection/group-selection';
 import { ChartDataProvider } from '../../providers/chart-data/chart-data';
@@ -100,7 +100,7 @@ export class HomePage {
   }
 
   onChatClick() {
-    this.navCtrl.push(ChatPage);
+    this.navCtrl.push(ChatUsersPage);
   }
 
   presentLoadingCustom() {

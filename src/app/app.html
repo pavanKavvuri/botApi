@@ -33,9 +33,10 @@
 
         <ion-list no-lines radio-group style='margin-top:20px;' [(ngModel)]="selectedGroupValue" (ionChange)="radioChanges()">
 
-            <ion-item *ngFor='let group of groupSelectionService.getAllGroups(); let lst=last;' [ngClass]="{'group-list-item-last' : lst}" class='group-list-item sidebar-item'>
+            <ion-item *ngFor='let group of groupSelectionService.getAllGroups(); let lst=last;' [ngClass]="{'group-list-item-last' : lst}"
+                class='group-list-item sidebar-item'>
                 <ion-label>{{group.name}}</ion-label>
-                <ion-radio mode='md' item-left value="{{group.value}}"></ion-radio>
+                <ion-radio mode='md' item-left value="{{group.value}}" menuClose="left"></ion-radio>
             </ion-item>
         </ion-list>
 

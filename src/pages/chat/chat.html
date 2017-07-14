@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color='header-color'>
-    <ion-title>Chat</ion-title>
+    <ion-title>{{user.first | capitalize}} {{user.last | capitalize}}</ion-title>
     <!--<ion-buttons end>
       <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
     </ion-buttons>-->
@@ -13,7 +13,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item class="chat-item" *ngFor='let message of messages' text-wrap no-lines [ngClass]="{'left': message.user, 'right': !message.user}">
+    <ion-item class="chat-item animated slideInUp" *ngFor='let message of messages' text-wrap no-lines [ngClass]="{'left': message.user, 'right': !message.user}">
       <span>{{message.text}}</span>
     </ion-item>
   </ion-list>

@@ -7,7 +7,7 @@ import Group from '../models/group';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { TestPage } from '../pages/test/test';
+// import { ChatUsersPage } from '../pages/chat-users/chat-users';
 
 import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
 
