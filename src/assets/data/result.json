@@ -335,6 +335,128 @@
       "greaterThanFourWeeks": []
     }
   },
+  "agingData": {
+    "ADM AM": {
+      "new": [],
+      "closed": [],
+      "active": [],
+      "activeIt": [],
+      "activeBug": [],
+      "awaitingUserInfo": [
+        166,
+        119,
+        156,
+        114,
+        109,
+        127,
+        155,
+        115,
+        126
+      ],
+      "greaterThanOneWeek": [
+        128,
+        127,
+        157,
+        330,
+        130,
+        153,
+        120,
+        116,
+        127
+      ],
+      "greaterThanFourWeeks": [
+        406,
+        393,
+        422,
+        379,
+        358,
+        354,
+        157,
+        351,
+        361
+      ]
+    },
+    "GSD+L1": {
+      "new": [],
+      "closed": [],
+      "active": [],
+      "activeIt": [],
+      "activeBug": [],
+      "awaitingUserInfo": [
+        406,
+        393,
+        422,
+        379,
+        358,
+        354,
+        157,
+        351,
+        361
+      ],
+      "greaterThanOneWeek": [
+        166,
+        119,
+        156,
+        114,
+        109,
+        127,
+        155,
+        115,
+        126
+      ],
+      "greaterThanFourWeeks": [
+        128,
+        127,
+        157,
+        330,
+        130,
+        153,
+        120,
+        116,
+        127
+      ]
+    },
+    "SMO": {
+      "new": [],
+      "closed": [],
+      "active": [],
+      "activeIt": [],
+      "activeBug": [],
+      "awaitingUserInfo": [
+        406,
+        393,
+        422,
+        379,
+        358,
+        354,
+        157,
+        351,
+        361
+      ],
+      "greaterThanOneWeek": [
+        128,
+        127,
+        157,
+        330,
+        130,
+        153,
+        120,
+        116,
+        127
+      ],
+      "greaterThanFourWeeks": [
+        166,
+        119,
+        156,
+        114,
+        109,
+        127,
+        155,
+        115,
+        126
+      ]
+    }
+  },
   "weekArray": [
     "week 18",
     "week 19",

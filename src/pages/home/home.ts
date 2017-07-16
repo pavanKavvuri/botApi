@@ -9,8 +9,8 @@ import { KeyUpdatesComponent } from '../../components/key-updates/key-updates';
 import { GroupSelectionProvider } from '../../providers/group-selection/group-selection';
 import { ChartDataProvider } from '../../providers/chart-data/chart-data';
 
-import { incidentChart, enhancementChart, serviceRequestChart, agingChart } from '../../assets/data/chartConfig';
-//import { chartNames } from '../../assets/data/apiRespChartsNames';
+//import { incidentChart, enhancementChart, serviceRequestChart, agingChart } from '../../assets/data/chartConfig';
+import { chartRendererMap } from '../../assets/data/apiRespChartsNames';
 
 import Group from '../../models/group';
 import { ChartData } from '../../models/chartData';
@@ -67,26 +67,37 @@ export class HomePage {
 
   drawCharts() {
 
+    let { charts } = this.groupSelectionService.getSelectedGroup();
+    let renderers = [];
+    charts.map((chartName) => {
+      renderers.push(chartRendererMap[chartName]);
+    });
+
+    console.log(renderers);
+
     //Incidents Chart
     if (!this.chartIncident)
-      this.chartIncident = c3.generate(incidentChart(this.activeIncidentsChart, this.chartsData[0]));
+      this.chartIncident = c3.generate(renderers[0](this.activeIncidentsChart, this.chartsData[0]));
     else
       this.chartIncident.load(this.prepLoadData(this.chartsData[0]));
 
     //Enhancements Chart
     if (!this.chartEnhancement)
-      this.chartEnhancement = c3.generate(enhancementChart(this.activeEnhancementsChart, this.chartsData[1]));
+      this.chartEnhancement = c3.generate(renderers[1](this.activeEnhancementsChart, this.chartsData[1]));
     else
       this.chartEnhancement.load(this.prepLoadData(this.chartsData[1]));
 
     //Service Request Chart
     if (!this.chartServiceReq)
-      this.chartServiceReq = c3.generate(serviceRequestChart(this.serviceRequestsChart, this.chartsData[2]));
+      this.chartServiceReq = c3.generate(renderers[2](this.serviceRequestsChart, this.chartsData[2]));
     else
       this.chartServiceReq.load(this.prepLoadData(this.chartsData[2]));
 
     //Aging Chart
-    //this.chartAging = c3.generate(agingChart(this.agingTrendChart, this.chartsData[1]));
+    if (!this.chartAging)
+      this.chartAging = c3.generate(renderers[3](this.agingTrendChart, this.chartsData[3]));
+    else
+      this.chartAging.load(this.prepLoadData(this.chartsData[3]));
 
   }
 
@@ -124,6 +135,7 @@ export class HomePage {
 
     loading.onDidDismiss(() => {
 
+      // Service subscribe
       this.groupSelectionService.currentGroup().subscribe((group: Group) => {
         console.log('HOME -> ', group.value);
         this.showScores = group.showScores;
@@ -131,9 +143,6 @@ export class HomePage {
         console.log(this.chartsData);
         this.drawCharts();
       });
-
-
-      console.log('Dismissed loading');
     });
 
     loading.present();

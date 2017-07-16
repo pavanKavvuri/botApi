@@ -48,7 +48,7 @@ export class ChatPage {
   }
 
   onSend() {
-    if (this.inputMessage.length !== 0) {
+    if (this.inputMessage.trim().length !== 0) {
       this.messages.push({
         text: this.inputMessage,
         user: this.alternate
@@ -57,7 +57,8 @@ export class ChatPage {
       this.alternate = !this.alternate;
       this.scrollToBottom();
     }
-    
+
+    this.inputMessage = '';
     this.keyboard.close();
 
   }

@@ -32,6 +32,7 @@ export class GroupSelectionProvider {
   }
 
   setGroup(value: string) {
+    //console.log(`%c ${value}`, 'color:red;');
     if (this.selectedGroup.value !== value) {
       this.selectedGroup = this.getGroupFromValue(value);
       this._groupChanges.next(Object.assign({}, this.selectedGroup));

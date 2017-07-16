@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 export class ChatUsersProvider {
 
   constructor(public http: Http) {
-    this.http.get('https://api.randomuser.me/?nat=us&results=12').subscribe(res => {
-      console.log(res.json().results);
-    });
+    // this.http.get('https://api.randomuser.me/?nat=us&results=12').subscribe(res => {
+    //   //console.log(res.json().results);
+    // });
   }
 
   getUsers() {

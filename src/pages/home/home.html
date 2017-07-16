@@ -56,18 +56,18 @@
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
 
-          <template [ngIf]="showScores">
+          <ng-template [ngIf]="showScores">
             <ion-card-header class='graph-card-header' (click)="showScoreCard('incident')">
-              Trend of Active Incidents
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[0]}}
               <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
             </ion-card-header>
-          </template>
+          </ng-template>
 
-          <template [ngIf]="!showScores">
+          <ng-template [ngIf]="!showScores">
             <ion-card-header class='graph-card-header'>
-              Trend of Active Incidents
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[0]}}
             </ion-card-header>
-          </template>
+          </ng-template>
 
           <ion-card-content>
             <div #activeIncidentsChart></div>
@@ -78,18 +78,18 @@
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
 
-          <template [ngIf]="showScores">
+          <ng-template [ngIf]="showScores">
             <ion-card-header class='graph-card-header' (click)="showScoreCard('enhancement')">
-              Trend of Active Enhancements
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[1]}}
               <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
             </ion-card-header>
-          </template>
+          </ng-template>
 
-          <template [ngIf]="!showScores">
+          <ng-template [ngIf]="!showScores">
             <ion-card-header class='graph-card-header'>
-              Trend of Active Enhancements
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[1]}}
             </ion-card-header>
-          </template>
+          </ng-template>
 
           <ion-card-content>
             <div #activeEnhancementsChart></div>
@@ -102,18 +102,18 @@
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
 
-          <template [ngIf]="showScores">
+          <ng-template [ngIf]="showScores">
             <ion-card-header class='graph-card-header' (click)="showScoreCard('sr')">
-              Trend of Service Requests
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[2]}}
               <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
             </ion-card-header>
-          </template>
+          </ng-template>
 
-          <template [ngIf]="!showScores">
+          <ng-template [ngIf]="!showScores">
             <ion-card-header class='graph-card-header'>
-              Trend of Service Requests
+              {{this.groupSelectionService.getSelectedGroup().cardTitles[2]}}
             </ion-card-header>
-          </template>
+          </ng-template>
 
           <ion-card-content>
             <div #serviceRequestsChart></div>
@@ -124,19 +124,10 @@
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
 
-          <!--<template [ngIf]="showScores">
-            <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-              Trend of Aging
-              <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
-            </ion-card-header>
-          </template>-->
-
-          <template [ngIf]="showScores">
-            <ion-card-header class='graph-card-header'>
-              Trend of Aging
-            </ion-card-header>
-          </template>
-
+          <ion-card-header class='graph-card-header'>
+            {{this.groupSelectionService.getSelectedGroup().cardTitles[3]}}
+          </ion-card-header>
+          
           <ion-card-content>
             <div #agingTrendChart></div>
           </ion-card-content>

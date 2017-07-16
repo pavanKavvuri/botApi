@@ -159,27 +159,26 @@ const agingChart = (elemRef: ElementRef, chartData: ChartData) => {
         data: {
             names: {
                 '1': 'Awaiting User Info',
-                '2': '12 weeks aging',
-                '3': '>4 and <12 weeks aging',
-                '4': '1 week aging'
+                '2': '>4 and <12 weeks aging',
+                '3': '1 week aging'
             },
             columns: [
                 ['1', ...chartData.content[0]],
                 ['2', ...chartData.content[1]],
                 ['3', ...chartData.content[2]],
-                ['4', ...chartData.content[3]]
+                // ['4', ...chartData.content[3]]
             ],
             type: 'area-spline',
             types: {
                 '2': 'area-spline',
                 '3': 'area-spline',
-                '4': 'area-spline'
+                // '4': 'area-spline'
             },
             colors: {
                 '1': '#ffce56',
                 '2': '#36a2eb',
                 '3': '#ff6384',
-                '4': '#ef6c00',
+                // '4': '#ef6c00',
             }
         },
         axis: {
@@ -205,4 +204,54 @@ const agingChart = (elemRef: ElementRef, chartData: ChartData) => {
 
 };
 
-export { incidentChart, enhancementChart, serviceRequestChart, agingChart };
+
+const changeRequestChart = (elemRef: ElementRef, chartData: ChartData) => {
+
+    return {
+        bindto: elemRef.nativeElement,
+        data: {
+            names: {
+                '1': 'New',
+                '2': 'Closed',
+                '3': 'Active'
+            },
+            columns: [
+                ['1', ...chartData.content[0]],
+                ['2', ...chartData.content[1]],
+                ['3', ...chartData.content[2]]
+            ],
+            type: 'bar',
+            types: {
+                '3': 'area-spline',
+                '2': 'bar',
+                '1': 'bar'
+            },
+            colors: {
+                '1': '#03A9F4',
+                '2': '#FFD54F',
+                '3': '#FB8C00'
+            }
+        },
+        legend: {
+            position: 'bottom'
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: chartData.weeks,
+                label: {
+                    text: 'Weeks',
+                    position: 'outer-center'
+                }
+            },
+            y: {
+                label: {
+                    text: 'No. of Change Requests',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    };
+};
+
+export { incidentChart, enhancementChart, serviceRequestChart, agingChart, changeRequestChart };

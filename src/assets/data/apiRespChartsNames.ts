@@ -1,11 +1,35 @@
-//import { incidentChart, enhancementChart, serviceRequestChart, agingChart } from './chartConfig';
+import { incidentChart, enhancementChart, serviceRequestChart, agingChart, changeRequestChart } from './chartConfig';
 
 const chartNames = [
     "incidentData",
     "enhancementData",
     "serviceRequestData",
-    //"changerequestData"
+    "changerequestData",
+    "agingData"
 ];
+
+const mapDataToGroups = {
+    'adm': [
+        "incidentData",
+        "enhancementData",
+        "serviceRequestData",
+        "agingData"
+    ],
+    'smo': [
+
+        "incidentData",
+        "incidentData",
+        "serviceRequestData",
+        "agingData"
+    ],
+    'gsd': [
+
+        "incidentData",
+        "changerequestData",
+        "serviceRequestData",
+        "agingData"
+    ]
+};
 
 const chartLegendConfig = {
     "incidentData": [
@@ -24,13 +48,31 @@ const chartLegendConfig = {
         'closed',
         'active'
     ],
-    // "changerequestData": [
-    //     'Awaiting User Info',
-    //     '12 weeks aging',
-    //     '>4 and <12 weeks aging',
-    //     '1 week aging'
-    // ]
+    "changerequestData": [
+        'new',
+        'closed',
+        'active'
+    ],
+    "agingData": [
+        'awaitingUserInfo',
+        'greaterThanOneWeek',
+        'greaterThanFourWeeks'
+    ]
 }
 
-export { chartNames, chartLegendConfig };
+const chartRendererMap = {
+    "incident": incidentChart,
+    "enhancement": enhancementChart,
+    "sr": serviceRequestChart,
+    "aging": agingChart,
+
+    "incidentgsd": incidentChart,
+    "enhancementl1": enhancementChart,
+    "srgsd": serviceRequestChart,
+    "srl1": serviceRequestChart,
+
+    "cr": changeRequestChart
+}
+
+export { mapDataToGroups, chartNames, chartLegendConfig, chartRendererMap };
 
