@@ -2,4 +2,20 @@ page-chat-users {
     .scroll-content{
         background: color($colors, dashboard-background);
     }
+
+    .evenRowStyle{
+        background: #3f4b67;
+        color: white;
+    }
+
+    .oddRowStyle{
+        background: #25304a;
+        color: white;
+    }
+    
+    .card{
+        width: auto !important;
+        margin: 0 !important;
+        border-radius: 10px !important;
+    }
 }

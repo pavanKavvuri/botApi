@@ -3,7 +3,7 @@ import { Platform, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import Group from '../models/group';
+//import Group from '../models/group';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';

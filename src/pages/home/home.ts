@@ -10,7 +10,7 @@ import { GroupSelectionProvider } from '../../providers/group-selection/group-se
 import { ChartDataProvider } from '../../providers/chart-data/chart-data';
 
 import { incidentChart, enhancementChart, serviceRequestChart, agingChart } from '../../assets/data/chartConfig';
-import { chartNames } from '../../assets/data/apiRespChartsNames';
+//import { chartNames } from '../../assets/data/apiRespChartsNames';
 
 import Group from '../../models/group';
 import { ChartData } from '../../models/chartData';
