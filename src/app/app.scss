@@ -45,7 +45,8 @@ $radio-selection-color: #007ab3;
 .radio-checked{
     border-color: white !important;
     .radio-inner{
-        background-color: white !important;
+        //background-color: white !important;
+        border-color: white !important;
     }
 }
 
