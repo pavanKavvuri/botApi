@@ -9,14 +9,14 @@
 
 <ion-content padding>
 
-  <ion-list no-lines>
-    <ion-item (click)="launchChat(user.name.first , user.name.last)" *ngFor="let user of users | async" no-lines>
+  <ion-list>
+    <ion-item (click)="launchChat(user.name.first , user.name.last)" *ngFor="let user of users | async">
       <ion-avatar item-start>
         <img src="{{user.picture.thumbnail}}">
       </ion-avatar>
       <h2>{{user.name.first | capitalize }} {{user.name.last | capitalize}}</h2>
       <p>{{user.email}}</p>
     </ion-item>
-    </ion-list>
+  </ion-list>
 
 </ion-content>

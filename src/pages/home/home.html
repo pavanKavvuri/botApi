@@ -19,9 +19,11 @@
       <button ion-button icon-only>
           <img class='toolbar-button-icons' src='./assets/img/more_icon.png' />
       </button>-->
+      <button ion-button icon-only (click)="onKeyUpdateClick()"><ion-icon name="star"></ion-icon></button>
       <button ion-button icon-only (click)="onNotifClick()"><ion-icon name="ios-notifications"></ion-icon></button>
       <button ion-button icon-only (click)="onChatClick()"><ion-icon name="ios-chatboxes"></ion-icon></button>
-  
+
+
     </ion-buttons>
 
   </ion-navbar>
@@ -53,10 +55,20 @@
     <ion-row>
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
-            Trend of Active Incidents
-            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
-          </ion-card-header>
+
+          <template [ngIf]="showScores">
+            <ion-card-header class='graph-card-header' (click)="showScoreCard('incident')">
+              Trend of Active Incidents
+              <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+            </ion-card-header>
+          </template>
+
+          <template [ngIf]="!showScores">
+            <ion-card-header class='graph-card-header'>
+              Trend of Active Incidents
+            </ion-card-header>
+          </template>
+
           <ion-card-content>
             <div #activeIncidentsChart></div>
           </ion-card-content>
@@ -65,12 +77,20 @@
 
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
-            Trend of Active Enhancements
-            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+          <template [ngIf]="showScores">
+            <ion-card-header class='graph-card-header' (click)="showScoreCard('enhancement')">
+              Trend of Active Enhancements
+              <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+            </ion-card-header>
+          </template>
 
-          </ion-card-header>
+          <template [ngIf]="!showScores">
+            <ion-card-header class='graph-card-header'>
+              Trend of Active Enhancements
+            </ion-card-header>
+          </template>
+
           <ion-card-content>
             <div #activeEnhancementsChart></div>
           </ion-card-content>
@@ -81,12 +101,20 @@
     <ion-row>
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
-            Trend of Service Requests
-            <ion-icon class="chart-canvas" class='header-icon' name="ios-arrow-forward"></ion-icon>
+          <template [ngIf]="showScores">
+            <ion-card-header class='graph-card-header' (click)="showScoreCard('sr')">
+              Trend of Service Requests
+              <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+            </ion-card-header>
+          </template>
 
-          </ion-card-header>
+          <template [ngIf]="!showScores">
+            <ion-card-header class='graph-card-header'>
+              Trend of Service Requests
+            </ion-card-header>
+          </template>
+
           <ion-card-content>
             <div #serviceRequestsChart></div>
           </ion-card-content>
@@ -95,12 +123,20 @@
 
       <ion-col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6>
         <ion-card class="graph-background">
-          <ion-card-header class='graph-card-header' (click)="showScoreCard()">
 
-            Trend of Aging
-            <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+          <!--<template [ngIf]="showScores">
+            <ion-card-header class='graph-card-header' (click)="showScoreCard()">
+              Trend of Aging
+              <ion-icon class='header-icon' name="ios-arrow-forward"></ion-icon>
+            </ion-card-header>
+          </template>-->
 
-          </ion-card-header>
+          <template [ngIf]="showScores">
+            <ion-card-header class='graph-card-header'>
+              Trend of Aging
+            </ion-card-header>
+          </template>
+
           <ion-card-content>
             <div #agingTrendChart></div>
           </ion-card-content>

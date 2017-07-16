@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController, ModalController } from 'ionic-angular';
 import c3 from 'c3';
 
 import { ScoreCardPage } from '../score-card/score-card';
 import { ChatUsersPage } from '../chat-users/chat-users';
+import { KeyUpdatesComponent } from '../../components/key-updates/key-updates';
 
 import { GroupSelectionProvider } from '../../providers/group-selection/group-selection';
 import { ChartDataProvider } from '../../providers/chart-data/chart-data';
@@ -33,11 +34,13 @@ export class HomePage {
   chartAging: any;
 
   segment: string = 'week';
+  showScores: boolean = false;
   chartsData: Array<ChartData>;
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
+    public modalCtrl: ModalController,
     public groupSelectionService: GroupSelectionProvider,
     public chartDataService: ChartDataProvider) {
 
@@ -87,8 +90,17 @@ export class HomePage {
 
   }
 
-  showScoreCard() {
-    this.navCtrl.push(ScoreCardPage);
+  showScoreCard(cardName: string) {
+    this.navCtrl.push(ScoreCardPage, {
+      kpi: cardName
+    });
+  }
+
+  onKeyUpdateClick() {
+
+    let profileModal = this.modalCtrl.create(KeyUpdatesComponent, { userId: 8675309 });
+    profileModal.present();
+
   }
 
   onNotifClick() {
@@ -114,6 +126,7 @@ export class HomePage {
 
       this.groupSelectionService.currentGroup().subscribe((group: Group) => {
         console.log('HOME -> ', group.value);
+        this.showScores = group.showScores;
         this.chartsData = this.chartDataService.getGroupData(group.value);
         console.log(this.chartsData);
         this.drawCharts();

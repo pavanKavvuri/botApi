@@ -9,7 +9,7 @@ export class ChartDataProvider {
 
   weeksArray: Array<string>;
   staticData: any;
-  
+
   constructor(public http: Http) {
 
   }
@@ -20,13 +20,13 @@ export class ChartDataProvider {
       let result = res.json();
 
       this.staticData = result;
-      this.weeksArray = result["weekArray"];
+      this.weeksArray = this.normalizeWeeks(result["weekArray"]);
       console.log('%cLoading Done', 'font-size: 20px; color: blue;')
     });
   }
 
-  test(group: string) {
-    console.log(group);
+  normalizeWeeks(weeksArr: Array<string>) {
+    return weeksArr.map(x => x.split(" ")[1]);
   }
 
   getGroupData(groupName: string) {

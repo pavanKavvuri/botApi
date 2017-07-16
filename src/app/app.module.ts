@@ -19,6 +19,7 @@ import { ChartDataProvider } from '../providers/chart-data/chart-data';
 import { ChatUsersProvider } from '../providers/chat-users/chat-users';
 
 import { CapitalizePipe } from '../pipes/capitalize/capitalize';
+import { KeyUpdatesComponent } from '../components/key-updates/key-updates';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CapitalizePipe } from '../pipes/capitalize/capitalize';
     LoginPage,
     ChatPage,
     ChatUsersPage,
-    CapitalizePipe
+    CapitalizePipe,
+    KeyUpdatesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { CapitalizePipe } from '../pipes/capitalize/capitalize';
     ScoreCardPage,
     LoginPage,
     ChatPage,
-    ChatUsersPage
+    ChatUsersPage,
+    KeyUpdatesComponent
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { GroupScoreCard } from '../../models/scoreCard';
 
 import c3 from 'c3';
 
@@ -12,6 +11,8 @@ export class ScoreCardPage {
 
 
   @ViewChild('scoreCardChart') scoreCardChart: ElementRef;
+
+  chart: any = null;
 
   listColors: Array<string> = [
     '#3fc2c6',
@@ -29,9 +30,53 @@ export class ScoreCardPage {
     'Release 2G live'
   ];
 
-  scoreCard: GroupScoreCard = {
-    scoreCard: []
-  };
+  incidentsData = {
+    names: {
+      '1': 'Inflow',
+      '2': 'Closed',
+      '3': 'Active',
+      '4': '>30 Days'
+    },
+    data: [
+      [5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
+      [10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
+      [3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
+      [0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0]
+    ],
+    yaxis: 'No. of Incidents'
+  }
+
+  enhancementsData = {
+    names: {
+      '1': 'Active Bugs',
+      '2': 'Active IT Changes',
+      '3': 'Active Business Changes',
+      '4': 'Closed'
+    },
+    data: [
+      [17, 0, 0, 0, 17, 2, 3, 2, 0, 16, 0],
+      [14, 1, 5, 0, 26, 1, 4, 3, 3, 13, 1],
+      [11, 1, 2, 0, 6, 0, 0, 2, 1, 1, 0],
+      [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
+    ],
+    yaxis: 'No. of Enhancements'
+  }
+
+  srData = {
+    names: {
+      '1': 'Inflow',
+      '2': 'Closed',
+      '3': 'Active',
+      '4': '>30 Days'
+    },
+    data: [
+      [6, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0],
+      [10, 0, 0, 0, 1, 0, 2, 0, 0, 2, 0],
+      [12, 1, 5, 0, 27, 1, 2, 2, 0, 3, 0],
+      [4, 1, 2, 0, 25, 1, 2, 1, 0, 2, 0]
+    ],
+    yaxis: 'No. of Service Requests'
+  }
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams) {
@@ -39,20 +84,42 @@ export class ScoreCardPage {
   }
 
   ionViewDidLoad() {
-    c3.generate({
+
+    let kpi = this.navParams.get('kpi');
+    let data = null;
+    let names = null;
+    let yaxis = null;
+
+    console.log('KPI -> ', kpi);
+
+    switch (kpi) {
+      case 'incident':
+        data = this.incidentsData.data;
+        names = this.incidentsData.names;
+        yaxis = this.incidentsData.yaxis;
+        break;
+      case 'enhancement':
+        data = this.enhancementsData.data;
+        names = this.enhancementsData.names;
+        yaxis = this.enhancementsData.yaxis
+        break;
+      case 'sr':
+        data = this.srData.data;
+        names = this.srData.names;
+        yaxis = this.srData.yaxis
+        break;
+    }
+
+
+    this.chart = c3.generate({
       bindto: this.scoreCardChart.nativeElement,
       data: {
-        names: {
-          '1': 'Awaiting User Info',
-          '2': '12 weeks aging',
-          '3': '>4 and <12 weeks aging',
-          '4': '1 week aging'
-        },
+        names,
         columns: [
-          ['1', 5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
-          ['2', 10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
-          ['3', 3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
-          ['4', 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0],
+          ['1', ...data[0]],
+          ['2', ...data[1]],
+          ['3', ...data[2]],
+          ['4', ...data[3]],
         ],
         type: 'area-spline',
         types: {
@@ -82,14 +149,10 @@ export class ScoreCardPage {
             'UNION',
             'FR-APPS',
             'myAGCS'],
-          // label: {
-          //   text: 'Weeks',
-          //   position: 'outer-center'
-          // }
         },
         y: {
           label: {
-            text: 'No. of Incidents',
+            text: yaxis,
             position: 'outer-middle'
           }
         }
@@ -99,92 +162,5 @@ export class ScoreCardPage {
       }
     });
   }
-
-
-  // ionViewDidLoad() {
-
-  //   let ctx = (<HTMLCanvasElement>document.getElementById("myScoreCardChart")).getContext('2d');
-  //   new Chart(ctx, {
-  //     type: 'line',
-  //     data: {
-  //       labels: [
-  //         'AMANDA',
-  //         'ARCNET',
-  //         'AZUR',
-  //         'BIRT',
-  //         'CORES',
-  //         'DE APPS',
-  //         'GPS',
-  //         'GREAT',
-  //         'UNION',
-  //         'FR-APPS',
-  //         'myAGCS',
-  //       ],
-  //       datasets: [{
-  //         label: 'Inflow',
-  //         data: [5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
-  //         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-  //         borderColor: 'rgba(255, 99, 132, 1)'
-  //       }, {
-  //         label: 'Closed',
-  //         data: [10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
-  //         backgroundColor: 'rgba(54, 162, 235, 0.2)',
-  //         borderColor: 'rgba(54, 162, 235, 1)',
-  //         type: 'line'
-  //       },
-  //       {
-  //         label: 'Active',
-  //         data: [3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
-  //         backgroundColor: 'rgba(255, 206, 86, 0.2)',
-  //         borderColor: 'rgba(255, 206, 86, 1)',
-  //         type: 'line'
-  //       },
-  //       {
-  //         label: '>30 days',
-  //         data: [0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0],
-  //         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-  //         borderColor: 'rgba(75, 192, 192, 1)',
-  //         type: 'line'
-  //       }],
-  //     },
-  //     options: {
-  //       legend: {
-  //         display: true,
-  //         labels: {
-  //           boxWidth: 12,
-  //           fontColor: 'rgb(255, 255, 255)'
-  //         }
-  //       },
-  //       maintainAspectRatio: true,
-  //       responsive: true,
-  //       scales: {
-  //         xAxes: [{
-  //           ticks: {
-  //             fontColor: "white",
-  //             beginAtZero: true
-  //           },
-  //           scaleLabel: {
-  //             display: true,
-  //             fontColor: "white",
-  //             fontSize: 16,
-  //             labelString: 'Week'
-  //           }
-  //         }],
-  //         yAxes: [{
-  //           ticks: {
-  //             fontColor: "white",
-  //             beginAtZero: true
-  //           },
-  //           scaleLabel: {
-  //             display: true,
-  //             fontColor: "white",
-  //             fontSize: 16,
-  //             labelString: 'No. of Incidents'
-  //           }
-  //         }]
-  //       }
-  //     }
-  //   });
-  // }
 
 }

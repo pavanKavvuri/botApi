@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Content } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 
 interface Message {
   text: string;
@@ -21,7 +22,11 @@ export class ChatPage {
     last: ''
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private keyboard: Keyboard
+  ) {
+
     this.user = { first: this.navParams.get('first'), last: this.navParams.get('last') };
     this.messages = [
       {
@@ -52,6 +57,9 @@ export class ChatPage {
       this.alternate = !this.alternate;
       this.scrollToBottom();
     }
+    
+    this.keyboard.close();
+
   }
 
   scrollToBottom() {
