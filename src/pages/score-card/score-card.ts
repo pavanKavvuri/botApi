@@ -22,12 +22,14 @@ export class ScoreCardPage {
   ];
 
   keyUpdates: Array<string> = [
-    'Azure JBOSS EAP 6.4 Post go-live upgrade status',
-    'Bowne Server Migration',
-    'Imbalance between SAP and Cognos report',
-    'Aging Status - 11 incidents',
-    'CIO Dashboard status',
-    'Release 2G live'
+    'Active Request is High in FR local apps due to 4 Requests for Business confirmation to close , 3 Awaiting Implementation and  3 are  analyzing  with Genius team on cash processing issues.',
+    'AMANDA UK- Closed 60% of the requests. Focusing on the closure of pending requests which are related to data amendment',
+    // 'Azure JBOSS EAP 6.4 Post go-live upgrade status',
+    // 'Bowne Server Migration',
+    // 'Imbalance between SAP and Cognos report',
+    // 'Aging Status - 11 incidents',
+    // 'CIO Dashboard status',
+    // 'Release 2G live'
   ];
 
   incidentsData = {
@@ -38,10 +40,10 @@ export class ScoreCardPage {
       '4': '>30 Days'
     },
     data: [
-      [5, 3, 3, 0, 8, 0, 0, 0, 0, 5, 1],
-      [10, 1, 1, 0, 11, 0, 2, 0, 0, 9, 1],
-      [3, 2, 3, 0, 9, 0, 0, 1, 0, 2, 0],
-      [0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0]
+      [7, 0, 2, 0, 11, 1, 1, 0, 0, 4, 0],
+      [6, 0, 1, 0, 7, 0, 0, 0, 0, 0, 0],
+      [5, 1, 2, 0, 17, 1, 1, 0, 0, 10, 1],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 1]
     ],
     yaxis: 'No. of Incidents'
   }
@@ -54,10 +56,10 @@ export class ScoreCardPage {
       '4': 'Closed'
     },
     data: [
-      [17, 0, 0, 0, 17, 2, 3, 2, 0, 16, 0],
-      [14, 1, 5, 0, 26, 1, 4, 3, 3, 13, 1],
-      [11, 1, 2, 0, 6, 0, 0, 2, 1, 1, 0],
-      [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
+      [16, 1, 1, 0, 17, 0, 3, 2, 0, 16, 0],
+      [15, 0, 6, 1, 27, 1, 2, 4, 3, 17, 1],
+      [6, 1, 2, 2, 7, 0, 0, 2, 1, 1, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
     ],
     yaxis: 'No. of Enhancements'
   }
@@ -70,10 +72,10 @@ export class ScoreCardPage {
       '4': '>30 Days'
     },
     data: [
-      [6, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0],
-      [10, 0, 0, 0, 1, 0, 2, 0, 0, 2, 0],
-      [12, 1, 5, 0, 27, 1, 2, 2, 0, 3, 0],
-      [4, 1, 2, 0, 25, 1, 2, 1, 0, 2, 0]
+      [4, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+      [4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+      [10, 0, 3, 0, 22, 1, 3, 2, 1, 2, 0],
+      [4, 0, 3, 0, 20, 1, 2, 2, 0, 1, 0]
     ],
     yaxis: 'No. of Service Requests'
   }
@@ -84,6 +86,11 @@ export class ScoreCardPage {
   }
 
   ionViewDidLoad() {
+    setTimeout(() => { this.drawGraph() }, 500);
+  }
+
+
+  drawGraph() {
 
     let kpi = this.navParams.get('kpi');
     let data = null;

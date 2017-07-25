@@ -16,7 +16,9 @@ export class ChartDataProvider {
 
   load() {
     console.log('%cLoading Start', 'font-size: 20px; color: red;')
-    this.http.get('./assets/data/result.json').subscribe(res => {
+    // this.http.get('./assets/data/result.json').subscribe(res => {
+    this.http.get('http://13.59.71.199:80/getIncidentsMetrics').subscribe(res => {
+
       let result = res.json();
 
       this.staticData = result;

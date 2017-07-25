@@ -20,7 +20,7 @@
 
           <ion-card-content style='padding:0 !important;'>
             <ion-list>
-              <ion-item no-lines *ngFor='let update of keyUpdates; let i=index;' [ngClass]='{"evenRowStyle": i%2==0 , "oddRowStyle": i%2!==0}'
+              <ion-item text-wrap no-lines *ngFor='let update of keyUpdates; let i=index;' [ngClass]='{"evenRowStyle": i%2==0 , "oddRowStyle": i%2!==0}'
                 [ngStyle]="{'border-left': '3px solid ' + listColors[i%4]}">
                 <ion-label> {{update}} </ion-label>
                 <img class='bullet' src='./assets/img/key_updates_bullet.png' item-left/>

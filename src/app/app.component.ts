@@ -15,8 +15,8 @@ import { GroupSelectionProvider } from '../providers/group-selection/group-selec
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = HomePage;
-  // rootPage: any = LoginPage;
+  // rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   selectedGroupValue: string;
 

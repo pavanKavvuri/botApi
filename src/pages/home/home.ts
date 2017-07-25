@@ -33,6 +33,7 @@ export class HomePage {
   chartServiceReq: any;
   chartAging: any;
 
+  loading: boolean = true;
   segment: string = 'week';
   showScores: boolean = false;
   chartsData: Array<ChartData>;
@@ -73,7 +74,7 @@ export class HomePage {
       renderers.push(chartRendererMap[chartName]);
     });
 
-    console.log(renderers);
+    //console.log(renderers);
 
     //Incidents Chart
     if (!this.chartIncident)
@@ -81,24 +82,30 @@ export class HomePage {
     else
       this.chartIncident.load(this.prepLoadData(this.chartsData[0]));
 
-    //Enhancements Chart
-    if (!this.chartEnhancement)
-      this.chartEnhancement = c3.generate(renderers[1](this.activeEnhancementsChart, this.chartsData[1]));
-    else
-      this.chartEnhancement.load(this.prepLoadData(this.chartsData[1]));
+    setTimeout(() => {
+      //Enhancements Chart
+      if (!this.chartEnhancement)
+        this.chartEnhancement = c3.generate(renderers[1](this.activeEnhancementsChart, this.chartsData[1]));
+      else
+        this.chartEnhancement.load(this.prepLoadData(this.chartsData[1]));
+    }, 300);
 
-    //Service Request Chart
-    if (!this.chartServiceReq)
-      this.chartServiceReq = c3.generate(renderers[2](this.serviceRequestsChart, this.chartsData[2]));
-    else
-      this.chartServiceReq.load(this.prepLoadData(this.chartsData[2]));
+    setTimeout(() => {
+      //Service Request Chart
+      if (!this.chartServiceReq)
+        this.chartServiceReq = c3.generate(renderers[2](this.serviceRequestsChart, this.chartsData[2]));
+      else
+        this.chartServiceReq.load(this.prepLoadData(this.chartsData[2]));
+    }, 600);
 
-    //Aging Chart
-    if (!this.chartAging)
-      this.chartAging = c3.generate(renderers[3](this.agingTrendChart, this.chartsData[3]));
-    else
-      this.chartAging.load(this.prepLoadData(this.chartsData[3]));
+    setTimeout(() => {
 
+      //Aging Chart
+      if (!this.chartAging)
+        this.chartAging = c3.generate(renderers[3](this.agingTrendChart, this.chartsData[3]));
+      else
+        this.chartAging.load(this.prepLoadData(this.chartsData[3]));
+    }, 900);
   }
 
   showScoreCard(cardName: string) {
@@ -134,13 +141,13 @@ export class HomePage {
     });
 
     loading.onDidDismiss(() => {
-
+      this.loading = false;
       // Service subscribe
       this.groupSelectionService.currentGroup().subscribe((group: Group) => {
-        console.log('HOME -> ', group.value);
+        //console.log('HOME -> ', group.value);
         this.showScores = group.showScores;
         this.chartsData = this.chartDataService.getGroupData(group.value);
-        console.log(this.chartsData);
+        //console.log(this.chartsData);
         this.drawCharts();
       });
     });

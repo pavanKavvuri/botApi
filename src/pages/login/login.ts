@@ -23,7 +23,7 @@ export class LoginPage {
   }
 
   onLogin() {
-    if (this.username === 'shobhit' && this.password === '123') {
+    if (this.username === 'cio' && this.password === 'cio@123') {
       this.navCtrl.setRoot(HomePage);
       this.menu.enable(true);
     } else {

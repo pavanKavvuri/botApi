@@ -16,16 +16,14 @@ const mapDataToGroups = {
         "agingData"
     ],
     'smo': [
-
         "incidentData",
-        "incidentData",
+        "changerequestData",
         "serviceRequestData",
         "agingData"
     ],
     'gsd': [
-
         "incidentData",
-        "changerequestData",
+        "incidentData",
         "serviceRequestData",
         "agingData"
     ]
