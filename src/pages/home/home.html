@@ -22,6 +22,7 @@
       <button ion-button icon-only (click)="onKeyUpdateClick()"><ion-icon name="star"></ion-icon></button>
       <button ion-button icon-only (click)="onNotifClick()"><ion-icon name="ios-notifications"></ion-icon></button>
       <button ion-button icon-only (click)="onChatClick()"><ion-icon name="ios-chatboxes"></ion-icon></button>
+      <button ion-button icon-only (click)="onmyChatClick()"><ion-icon name="ios-chatbubbles"></ion-icon></button>
 
 
     </ion-buttons>
@@ -34,19 +35,33 @@
 
   <ion-grid style='padding: 0'>
     <ion-row class='segment-container'>
-      <ion-col col-6>
-        <ion-segment mode='ios' [(ngModel)]="segment" color='light'>
-          <ion-segment-button value="today">
-            Today
+
+      <!--ion-col col-1>
+        <ion-segment-button style="color: white">
+             {{groupName}}
           </ion-segment-button>
-          <ion-segment-button value="week">
-            Week
+      </ion-col-->
+
+            <ion-col col-6>
+              <ion-segment mode='ios' [(ngModel)]="segment" color='light'>
+                <ion-segment-button value="today">
+                  Today
+                </ion-segment-button>
+                <ion-segment-button value="week">
+                  Week
+                </ion-segment-button>
+                <ion-segment-button value="month">
+                  Month
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+
+      <!--ion-col col-1>
+        <ion-segment-button style="color: white; font-style: italic">
+             Updated 1 hr ago
           </ion-segment-button>
-          <ion-segment-button value="month">
-            Month
-          </ion-segment-button>
-        </ion-segment>
-      </ion-col>
+      </ion-col-->
+
     </ion-row>
   </ion-grid>
 

@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { ScoreCardPage } from '../pages/score-card/score-card';
 import { LoginPage } from '../pages/login/login';
 import { ChatPage } from '../pages/chat/chat';
+import { MyChatPage } from '../pages/my-chat/my-chat';
 import { ChatUsersPage } from '../pages/chat-users/chat-users';
 
 import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
@@ -21,6 +22,13 @@ import { ChatUsersProvider } from '../providers/chat-users/chat-users';
 
 import { CapitalizePipe } from '../pipes/capitalize/capitalize';
 import { KeyUpdatesComponent } from '../components/key-updates/key-updates';
+import { ChatterBotProvider } from '../providers/chatter-bot/chatter-bot';
+ 
+import { SpeechSerProvider } from '../providers/speech-ser/speech-ser';
+
+import { MsrPage } from '../pages/msr/msr';
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+import { BotComponent } from '../components/bot/bot';
 
 @NgModule({
   declarations: [
@@ -29,9 +37,13 @@ import { KeyUpdatesComponent } from '../components/key-updates/key-updates';
     ScoreCardPage,
     LoginPage,
     ChatPage,
+    MyChatPage,
     ChatUsersPage,
     CapitalizePipe,
-    KeyUpdatesComponent
+    KeyUpdatesComponent,
+    PdfViewerComponent,
+    MsrPage,
+    BotComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +58,10 @@ import { KeyUpdatesComponent } from '../components/key-updates/key-updates';
     LoginPage,
     ChatPage,
     ChatUsersPage,
-    KeyUpdatesComponent
+    KeyUpdatesComponent,
+    BotComponent,
+    MyChatPage,
+    MsrPage
   ],
   providers: [
     StatusBar,
@@ -55,7 +70,10 @@ import { KeyUpdatesComponent } from '../components/key-updates/key-updates';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     GroupSelectionProvider,
     ChartDataProvider,
-    ChatUsersProvider
+    ChatUsersProvider,
+    ChatterBotProvider,
+ 
+    SpeechSerProvider
   ]
 })
 export class AppModule { }

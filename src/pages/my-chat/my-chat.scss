@@ -1,11 +1,11 @@
-page-chat {
+page-my-chat {
 
-    $right-bubble-color: #007ab3; 
-    $left-bubble-color: #CFD8DC;
+      $right-bubble-color: #007ab3; 
+      $left-bubble-color: #CFD8DC;
 
     .scroll-content {
       display: flex !important;
-      flex-direction: column !important;
+      flex-direction: column-reverse !important;
       background: color($colors, dashboard-background);
      // background: #3f4b67;
     }
@@ -13,7 +13,7 @@ page-chat {
       margin-top: auto !important;
       margin-bottom: 0 !important;
     }
-    
+     
     .chat-item{
         background: transparent !important;
     }
@@ -23,8 +23,9 @@ page-chat {
         span{
             display: inline-block;
             position: relative;
-            max-width: 500px;
+            max-width: 1000px;
             height: auto;
+            max-height: auto;
             border-radius: 10px;
             background: $left-bubble-color;
             padding: 3%;
@@ -71,4 +72,21 @@ page-chat {
         border-color: $right-bubble-color transparent transparent $right-bubble-color;
 
     }
+
+
+    .pavan {
+        background-color: #fff;
+        border-radius: 30px !important;
+        padding-left: 30px !important;
+        font-size: 1.1em;
+        border: 1px solid #000;
+        border-bottom: 1px solid #000;
+        box-shadow: none !important
+
+    }
+
+    .bcg{
+         background-color: #000;
+    }
+
 }

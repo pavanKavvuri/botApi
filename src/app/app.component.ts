@@ -7,16 +7,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { MyChatPage } from '../pages/my-chat/my-chat';
 // import { ChatUsersPage } from '../pages/chat-users/chat-users';
-
+import { MsrPage } from '../pages/msr/msr';
 import { GroupSelectionProvider } from '../providers/group-selection/group-selection';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage: any = HomePage;
+  // rootPage: any = MyChatPage;
   rootPage: any = LoginPage;
+ // rootPage: any = HomePage;
+//rootPage: any = MsrPage;
+
 
   selectedGroupValue: string;
 

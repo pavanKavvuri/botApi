@@ -12,7 +12,7 @@ export class KeyUpdatesComponent {
     '#3fc2c6',
     '#c63f8b',
     '#fbe08d',
-    '#7847d0'
+    '#7847d0' 
   ];
 
   keyUpdates: Array<string> = [

@@ -23,7 +23,8 @@ const mapDataToGroups = {
     ],
     'gsd': [
         "incidentData",
-        "incidentData",
+        //"incidentData",
+        "enhancementData",   // needs to be incident data for L1 incidents
         "serviceRequestData",
         "agingData"
     ]

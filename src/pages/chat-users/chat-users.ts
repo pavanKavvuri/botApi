@@ -4,6 +4,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ChatUsersProvider } from '../../providers/chat-users/chat-users';
 import { Observable } from 'rxjs/Observable';
 import { ChatPage } from '../chat/chat';
+import { MyChatPage } from '../my-chat/my-chat';
 
 @Component({
   selector: 'page-chat-users',

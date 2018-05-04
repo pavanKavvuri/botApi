@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core'; 
 import { NavController, NavParams, Content } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 
@@ -11,6 +11,7 @@ interface Message {
   selector: 'page-chat',
   templateUrl: 'chat.html'
 })
+
 export class ChatPage {
   @ViewChild(Content) content: Content;
 

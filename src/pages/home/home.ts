@@ -4,7 +4,9 @@ import c3 from 'c3';
 
 import { ScoreCardPage } from '../score-card/score-card';
 import { ChatUsersPage } from '../chat-users/chat-users';
+import { MyChatPage } from '../my-chat/my-chat';
 import { KeyUpdatesComponent } from '../../components/key-updates/key-updates';
+import { BotComponent } from '../../components/bot/bot';
 
 import { GroupSelectionProvider } from '../../providers/group-selection/group-selection';
 import { ChartDataProvider } from '../../providers/chart-data/chart-data';
@@ -37,6 +39,7 @@ export class HomePage {
   segment: string = 'week';
   showScores: boolean = false;
   chartsData: Array<ChartData>;
+  groupName: String = "";
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
@@ -45,14 +48,19 @@ export class HomePage {
     public groupSelectionService: GroupSelectionProvider,
     public chartDataService: ChartDataProvider) {
 
+    
+   // this.LoadingCustom();
     this.chartDataService.load();
-
-    this.presentLoadingCustom();
-
+    this.presentLoadingCustom()
   }
 
   ionViewDidLoad() {
+     // this.onKeyUpdateClick();
+   // setTimeout(this.presentLoadingCustom(), 10000);
+   //this.presentLoadingCustom()
   }
+
+  
 
   prepLoadData(chartData: ChartData) {
     let data = {
@@ -74,7 +82,7 @@ export class HomePage {
       renderers.push(chartRendererMap[chartName]);
     });
 
-    //console.log(renderers);
+   // console.log(renderers);
 
     //Incidents Chart
     if (!this.chartIncident)
@@ -133,21 +141,42 @@ export class HomePage {
     this.navCtrl.push(ChatUsersPage);
   }
 
-  presentLoadingCustom() {
+  onmyChatClick() {
+    //this.navCtrl.push(MyChatPage);
+    let profileModal = this.modalCtrl.create(BotComponent, { userId: 8675311 });
+    profileModal.present();
+  }
+
+
+  LoadingCustom() {
+    console.log('present loading Now')
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
       content: `Loading data...`,
-      duration: 1000
+      duration: 3500
+    });
+   loading.present();
+}
+
+  presentLoadingCustom() {
+    console.log('present loading Now')
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: `Loading data...`,
+      duration: 100
     });
 
     loading.onDidDismiss(() => {
       this.loading = false;
+      console.log('Loading Dismissed Now');
       // Service subscribe
       this.groupSelectionService.currentGroup().subscribe((group: Group) => {
-        //console.log('HOME -> ', group.value);
+        console.log('HOME -> ', group.value);
         this.showScores = group.showScores;
         this.chartsData = this.chartDataService.getGroupData(group.value);
+        //console.log("Chart data is: ")
         //console.log(this.chartsData);
+        this.groupName = group.name;
         this.drawCharts();
       });
     });

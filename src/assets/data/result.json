@@ -1,5 +1,5 @@
 {
-  "incidentData": {
+  "incidentData": { 
     "ADM AM": {
       "new": [
         134,
@@ -14,7 +14,7 @@
         75
       ],
       "closed": [
-        120,
+        120, 
         153,
         121,
         91,

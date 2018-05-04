@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar color='header-color'> 
+    <ion-title>CIO ChatBot</ion-title>
+    <!--<ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>-->
+  </ion-navbar>
+
+</ion-header> 
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item class="chat-item animated slideInUp" *ngFor='let message of messages' text-wrap no-lines [ngClass]="{'left': message.user, 'right': !message.user}">
+      <span>{{message.text}}</span>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
+
+<ion-footer>
+  <form #myForm="ngForm" class= "bcg">
+    <ion-item no-lines class = "pavan" >
+      <ion-input  type="text" placeholder="Enter something here..." [(ngModel)]="inputMessage" [ngModelOptions]="{standalone: true}"
+        maxlength="100"></ion-input>
+        
+      <button ion-button item-right outline type="submit" (click)="onSend(inputMessage)"> Send </button>
+
+      <!--button ion-button type="submit" (click)="onSend(inputMessage)"><ion-icon item-right name="md-send"></ion-icon></button-->
+      <!--ion-icon item-right name="md-send" (click) = "onSend(inputMessage)"></ion-icon-->
+
+
+      <!--ion-icon item-right name="ios-mic-outline" (click) = "activateRec()"></ion-icon>
+      <ion-icon item-right name="ios-mic-off-outline" (click) = "StopRec()"></ion-icon-->
+
+      <!--button ion-button type="submit" (click)="onSend(inputMessage)"><ion-icon item-right name="md-send"></ion-icon></button-->
+
+      <!--ion-icon [name]="!visible ? 'ios-mic-outline' : 'ios-mic-off-outline'"></ion-icon>
+
+      <button #myButton ion-button icon-only (click)="toggleIcon()">
+          <ion-icon [name]="buttonIcon"></ion-icon>
+      </button-->
+
+      <button  ion-button item-right icon-only (click)="toggleIcon()">
+          <ion-icon [name]="buttonIcon"></ion-icon>
+      </button>
+
+
+      
+    </ion-item>
+   
+  </form>
+
+</ion-footer>
